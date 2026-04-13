@@ -1,0 +1,3204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provide First Aid (HLTAID011) | Mark Institute Australia</title>
+    
+    <!-- Google Fonts: Nunito + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A2240;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        
+        :root {
+            --primary-blue: #3852B4;
+            --blue-light: #5E7AC4;
+            --blue-tint: #E6EEFF;
+            --amber-cta: #F08D39;
+            --amber-light: #F3BE7A;
+            --amber-tint: #FEF5EB;
+            --near-black: #1A2240;
+            --off-white: #F4F6FB;
+            --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        
+        /* Button Styles */
+        .btn-primary {
+            background-color: var(--amber-cta);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+        }
+        
+        .btn-primary:hover {
+            background-color: #C07020;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(240, 141, 57, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 1.5px solid white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--near-black);
+        }
+        
+        .nav-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--amber-cta);
+            transition: width 0.24s ease;
+        }
+        
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+        
+        .nav-underline.active::after {
+            width: 100%;
+        }
+        
+        /* Header Sticky */
+        header.scrolled {
+            box-shadow: 0 2px 24px rgba(56, 82, 180, 0.1);
+            border-bottom: 1px solid var(--blue-tint);
+        }
+        
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: white;
+            transition: all 0.3s ease;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section CD1 */
+        .hero-course {
+            background-color: var(--near-black);
+            height: auto;
+            min-height: auto;
+            position: relative;
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px;
+        }
+        
+        .hero-course::before {
+            content: 'HLTAID011';
+            position: absolute;
+            top: 50%;
+            right: 60px;
+            transform: translateY(-50%);
+            font-family: 'Nunito', sans-serif;
+            font-size: 180px;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.04);
+            z-index: 1;
+            line-height: 1;
+            white-space: nowrap;
+        }
+        
+        .hero-course-content {
+            position: relative;
+            z-index: 10;
+            max-width: 900px;
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: rgba(26, 34, 64, 0.7);
+            animation: slideInFromLeft 0.6s var(--ease-smooth) 0s both;
+        }
+        
+        .breadcrumb a {
+            color: rgba(26, 34, 64, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--near-black);
+        }
+        
+        .breadcrumb-sep {
+            color: var(--amber-cta);
+            font-weight: 600;
+        }
+        
+        /* Category Badges */
+        .category-badges {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+            animation: slideInFromLeft 0.6s var(--ease-smooth) 0.1s both;
+        }
+        
+        .badge-amber {
+            background-color: var(--amber-cta);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .badge-blue {
+            background-color: var(--blue-tint);
+            color: var(--primary-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Course Title */
+        .course-hero-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--near-black);
+            margin-bottom: 12px;
+            animation: slideUp 0.6s var(--ease-smooth) 0.2s both;
+        }
+        
+        .course-hero-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 17px;
+            font-weight: 400;
+            color: #666;
+            margin-bottom: 24px;
+            animation: slideUp 0.6s var(--ease-smooth) 0.3s both;
+        }
+        
+        /* Meta Row */
+        .meta-row {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            animation: slideUp 0.6s var(--ease-smooth) 0.4s both;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--near-black);
+        }
+        
+        .meta-icon {
+            color: var(--amber-cta);
+            font-size: 16px;
+        }
+        
+        /* Content Layout CD2 */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            gap: 40px;
+        }
+        
+        .content-wrapper-hero {
+            background: var(--primary-blue);
+            padding: 80px 20px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content-wrapper-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px),
+                radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-position: 0 0, 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .hero-top {
+            width: 100%;
+            flex: 1;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-top .breadcrumb {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .hero-top .breadcrumb a {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .hero-top .breadcrumb a:hover {
+            color: white;
+        }
+        
+        .hero-top .breadcrumb-sep {
+            color: var(--amber-cta);
+        }
+        
+        .hero-top .badge-amber {
+            background-color: var(--amber-cta);
+            color: white;
+        }
+        
+        .hero-top .badge-blue {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        
+        .hero-top .course-hero-title {
+            color: white;
+        }
+        
+        .hero-top .course-hero-desc {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        .hero-top .meta-item {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        
+        .hero-top .meta-icon {
+            color: var(--amber-cta);
+        }
+        
+        .main-content {
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        
+        .sidebar-top {
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        
+        @media (min-width: 1025px) {
+            .content-wrapper {
+                display: grid;
+                grid-template-columns: 65% 35%;
+                gap: 60px;
+                grid-template-areas: 
+                    "hero sidebar"
+                    "content content";
+            }
+            
+            .hero-top {
+                grid-area: hero;
+                margin-bottom: 0;
+            }
+            
+            .sidebar-top {
+                grid-area: sidebar;
+                margin-bottom: 0;
+            }
+            
+            .main-content {
+                grid-area: content;
+                margin-bottom: 0;
+            }
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            gap: 32px;
+            border-bottom: 1px solid var(--blue-tint);
+            position: sticky;
+            top: 110px;
+            background-color: white;
+            z-index: 50;
+            padding: 0 20px;
+            margin: 0 -20px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            animation: slideUp 0.6s var(--ease-smooth) 0.5s both;
+            display: none;
+        }
+        
+        .tab-nav button {
+            background: none;
+            border: none;
+            padding: 16px 0;
+            font-size: 15px;
+            font-weight: 600;
+            color: #999;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .tab-nav button:hover {
+            color: var(--near-black);
+        }
+        
+        .tab-nav button.active {
+            color: var(--primary-blue);
+        }
+        
+        .tab-nav button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background-color: var(--amber-cta);
+        }
+        
+        /* Tab Content Sections */
+        .tab-content {
+            opacity: 1;
+            transform: translateX(0);
+            transition: none;
+            pointer-events: auto;
+            display: block;
+        }
+        
+        .tab-content.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+            animation: none;
+        }
+        
+        .tab-content.exit {
+            opacity: 0;
+            transform: translateX(-16px);
+            transition: none;
+        }
+        
+        /* Overview Section */
+        .overview-text {
+            font-size: 16px;
+            font-weight: 400;
+            color: #2D3748;
+            line-height: 1.8;
+            margin-bottom: 32px;
+            width: 100%;
+        }
+        
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+            width: 100%;
+        }
+        
+        /* Full Width Enrol Card */
+        .enrol-card-full-width {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 16px;
+            padding: 24px 32px;
+            box-shadow: 0 4px 16px rgba(56, 82, 180, 0.08);
+            border-top: 4px solid var(--amber-cta);
+            width: 100%;
+            margin: 60px auto 40px;
+            max-width: 1200px;
+            animation: slideUp 0.6s var(--ease-smooth) 0.5s both;
+            box-sizing: border-box;
+        }
+        
+        .enrol-card-full-width h3 {
+            color: var(--near-black);
+            margin-bottom: 20px;
+        }
+        
+        .enrol-card-full-width table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+        }
+        
+        .enrol-card-full-width table td {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--blue-tint);
+            color: var(--near-black);
+            font-size: 14px;
+        }
+        
+        .enrol-card-full-width table td:first-child {
+            font-weight: 600;
+            width: 25%;
+            color: var(--near-black);
+        }
+        
+        .enrol-card-full-width table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .enrol-card-buttons-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .enrol-card-full-width .btn-primary,
+        .enrol-card-full-width .btn-outline {
+            flex: 1;
+            min-width: 140px;
+            padding: 10px 24px !important;
+            font-size: 14px;
+        }
+        
+        .enrol-card-full-width .btn-outline {
+            background-color: white;
+            color: var(--primary-blue);
+            border: 1.5px solid var(--primary-blue);
+        }
+        
+        .enrol-card-full-width .btn-outline:hover {
+            background-color: var(--blue-tint);
+        }
+        
+        .highlight-card {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(32px);
+            animation: slideUp 0.6s var(--ease-smooth) forwards;
+        }
+        
+        .highlight-card:nth-child(1) { animation-delay: 0s; }
+        .highlight-card:nth-child(2) { animation-delay: 0.1s; }
+        .highlight-card:nth-child(3) { animation-delay: 0.2s; }
+        
+        .highlight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(56, 82, 180, 0.1);
+        }
+        
+        .highlight-icon {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+        }
+        
+        .highlight-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--near-black);
+        }
+        
+        /* Learning Outcomes */
+        .learning-outcomes {
+            margin-bottom: 48px;
+        }
+        
+        .section-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--near-black);
+            margin-bottom: 24px;
+            padding-top: 36px;
+            border-top: 1px solid var(--blue-tint);
+            margin-top: 48px;
+            padding-top: 24px;
+        }
+        
+        #overview-tab .section-title {
+            border-top: none;
+            margin-top: 0;
+            padding-top: 0;
+        }
+        
+        .outcome-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(32px);
+            animation: slideUp 0.6s var(--ease-smooth) forwards;
+        }
+        
+        .outcome-item:nth-child(1) { animation-delay: 0s; }
+        .outcome-item:nth-child(2) { animation-delay: 0.1s; }
+        .outcome-item:nth-child(3) { animation-delay: 0.15s; }
+        .outcome-item:nth-child(4) { animation-delay: 0.2s; }
+        .outcome-item:nth-child(5) { animation-delay: 0.25s; }
+        .outcome-item:nth-child(6) { animation-delay: 0.3s; }
+        .outcome-item:nth-child(7) { animation-delay: 0.35s; }
+        .outcome-item:nth-child(8) { animation-delay: 0.4s; }
+        
+        .outcome-icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: var(--blue-tint);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 14px;
+            font-weight: 700;
+        }
+        
+        .outcome-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--near-black);
+            line-height: 1.6;
+            padding-top: 4px;
+        }
+        
+        /* Entry Requirements */
+        .requirement-card {
+            background-color: var(--blue-tint);
+            border: 1px solid var(--blue-tint);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            gap: 16px;
+            opacity: 0;
+            transform: translateY(32px);
+            animation: slideUp 0.6s var(--ease-smooth) forwards;
+        }
+        
+        .requirement-card:nth-child(1) { animation-delay: 0s; }
+        .requirement-card:nth-child(2) { animation-delay: 0.1s; }
+        .requirement-card:nth-child(3) { animation-delay: 0.15s; }
+        
+        .requirement-card.success {
+            background-color: #E6F7E6;
+            border-color: #C8E6C9;
+        }
+        
+        .requirement-icon {
+            flex-shrink: 0;
+            font-size: 20px;
+            color: var(--primary-blue);
+        }
+        
+        .requirement-card.success .requirement-icon {
+            color: #4CAF50;
+        }
+        
+        .requirement-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--near-black);
+        }
+        
+        /* Delivery Info Table */
+        .delivery-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 48px;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) 0.1s both;
+        }
+        
+        .delivery-table tr:nth-child(odd) {
+            background-color: white;
+        }
+        
+        .delivery-table tr:nth-child(even) {
+            background-color: var(--off-white);
+        }
+        
+        .delivery-table td {
+            padding: 16px;
+            font-size: 15px;
+            border: 1px solid var(--blue-tint);
+        }
+        
+        .delivery-table td:first-child {
+            font-weight: 600;
+            color: var(--primary-blue);
+            width: 30%;
+        }
+        
+        /* FAQ Accordion */
+        .faq-section {
+            margin-top: 48px;
+            padding-top: 48px;
+            border-top: 1px solid var(--blue-tint);
+        }
+        
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--blue-tint);
+            border-radius: 8px;
+            overflow: hidden;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) forwards;
+        }
+        
+        .faq-item:nth-child(1) { animation-delay: 0s; }
+        .faq-item:nth-child(2) { animation-delay: 0.05s; }
+        .faq-item:nth-child(3) { animation-delay: 0.1s; }
+        .faq-item:nth-child(4) { animation-delay: 0.15s; }
+        .faq-item:nth-child(5) { animation-delay: 0.2s; }
+        .faq-item:nth-child(6) { animation-delay: 0.25s; }
+        
+        .faq-question {
+            background-color: white;
+            padding: 18px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--near-black);
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+        
+        .faq-item.open .faq-question {
+            background-color: var(--amber-tint);
+            border-left: 3px solid var(--amber-cta);
+            padding-left: 15px;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--off-white);
+        }
+        
+        .faq-chevron {
+            transition: transform 0.3s ease;
+            color: var(--primary-blue);
+        }
+        
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.3s ease;
+            background-color: white;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .faq-item.open .faq-answer {
+            max-height: 1000px;
+            padding: 18px;
+            border-top: 1px solid var(--blue-tint);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .faq-answer-text {
+            font-size: 15px;
+            font-weight: 400;
+            color: #2D3748;
+            line-height: 1.8;
+        }
+        
+        /* Sidebar CD2 */
+        .sidebar {
+            position: relative;
+            width: 100%;
+        }
+        
+        .sidebar-sticky {
+            position: relative;
+            width: 100%;
+        }
+        
+        /* Enrol Card */
+        .enrol-card {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 8px 32px rgba(56, 82, 180, 0.12);
+            border-top: 4px solid var(--amber-cta);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) 0.6s both;
+            width: 100%;
+        }
+        
+        .enrol-card-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--near-black);
+            margin-bottom: 20px;
+        }
+        
+        .enrol-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .enrol-card-divider {
+            height: 1px;
+            background-color: var(--blue-tint);
+            margin-bottom: 16px;
+        }
+        
+        .key-details {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 400;
+            color: #666;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--blue-tint);
+        }
+        
+        .detail-row:last-child {
+            border-bottom: none;
+        }
+        
+        .detail-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+        
+        .detail-icon {
+            font-size: 14px;
+        }
+        
+        .detail-value {
+            color: var(--near-black);
+            font-weight: 500;
+        }
+        
+        /* Contact Card */
+        .contact-card {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) 0.7s both;
+            width: 100%;
+        }
+        
+        .contact-card-title {
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--near-black);
+            margin-bottom: 16px;
+        }
+        
+        .contact-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            flex-shrink: 0;
+            width: 20px;
+            text-align: center;
+            color: var(--primary-blue);
+        }
+        
+        .contact-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: var(--amber-cta);
+        }
+        
+        /* Share Section */
+        .share-section {
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid var(--blue-tint);
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) 0.8s both;
+        }
+        
+        .share-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: #999;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .share-icons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        
+        .share-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--blue-tint);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .share-icon:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        /* Related Courses CD3 */
+        .student-resources-section {
+            background-color: white;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+
+        .student-resources-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resources-heading {
+            font-family: 'Nunito', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--near-black);
+            margin-bottom: 16px;
+            margin-top: 0;
+        }
+
+        .resources-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 50px;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .article-card {
+            background: white;
+            border: 2px solid var(--blue-tint);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .article-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 40px rgba(56, 82, 180, 0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            overflow: hidden;
+        }
+
+        .article-content {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .article-category {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--amber-cta);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 8px;
+        }
+
+        .article-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--near-black);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .article-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .article-read-more {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease;
+            margin-top: 12px;
+        }
+
+        .article-read-more:hover {
+            gap: 12px;
+        }
+
+        .related-section {
+            background-color: var(--off-white);
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+        
+        .related-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Contact & Share Section */
+        .contact-share-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-share-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .related-heading {
+            font-family: 'Nunito', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--near-black);
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) 0s both;
+        }
+        
+        .related-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        /* Course Card */
+        .course-card {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 14px;
+            overflow: hidden;
+            border-top: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) forwards;
+        }
+        
+        .course-card:nth-child(1) { animation-delay: 0s; }
+        .course-card:nth-child(2) { animation-delay: 0.1s; }
+        .course-card:nth-child(3) { animation-delay: 0.2s; }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(56, 82, 180, 0.1);
+        }
+        
+        .course-card-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--blue-tint);
+        }
+        
+        .course-code {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        
+        .course-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--near-black);
+            line-height: 1.4;
+        }
+        
+        .course-card-body {
+            padding: 16px;
+        }
+        
+        .course-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .course-meta {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 14px;
+        }
+        
+        .course-link {
+            color: var(--amber-cta);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease;
+        }
+        
+        .course-link:hover {
+            gap: 12px;
+        }
+        
+        /* CTA Banner CD4 */
+        .cta-banner {
+            background-color: var(--primary-blue);
+            padding: 60px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: slideUp 0.6s var(--ease-smooth) 0.1s both;
+        }
+        
+        .cta-banner-text {
+            font-family: 'Nunito', sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            color: white;
+            max-width: 500px;
+        }
+        
+        .cta-banner-buttons {
+            display: flex;
+            gap: 16px;
+            min-width: 300px;
+        }
+        
+        .cta-banner-buttons .btn-primary,
+        .cta-banner-buttons .btn-ghost {
+            flex: 1;
+            padding: 14px 28px;
+        }
+        
+        .btn-ghost {
+            background-color: transparent;
+            color: white;
+            border: 1.5px solid white;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+        
+        .btn-ghost:hover {
+            background-color: white;
+            color: var(--primary-blue);
+        }
+        
+        /* Mobile Bottom Fixed Bar */
+        .mobile-enrol-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--amber-cta);
+            padding: 12px 16px;
+            z-index: 99;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.3s ease;
+        }
+        
+        .mobile-enrol-bar.show {
+            display: block;
+        }
+        
+        .mobile-enrol-bar button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--amber-cta);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        /* Enquiry Form Styling */
+        #enquiryForm input:focus,
+        #enquiryForm select:focus,
+        #enquiryForm textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(56, 82, 180, 0.1);
+        }
+        
+        #enquiryForm button[type="submit"] {
+            background-color: var(--amber-cta);
+        }
+        
+        #enquiryForm button[type="submit"]:hover {
+            background-color: #C07020;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(240, 141, 57, 0.3);
+        }
+        
+        #enquiryForm button[type="submit"]:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+        
+        /* Form responsive grid - 2 columns on desktop */
+        .form-row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes slideInFromLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0s !important;
+                transition-duration: 0s !important;
+            }
+        }
+        
+        /* Career Tab Buttons */
+        #roles-tab-btn, #environments-tab-btn, #pathways-tab-btn {
+            transition: all 0.3s ease;
+        }
+        
+        #roles-tab-btn:hover, #environments-tab-btn:hover, #pathways-tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(56, 82, 180, 0.15);
+        }
+        
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-course {
+                padding: 40px;
+                height: auto;
+            }
+            
+            .course-hero-title {
+                font-size: 36px;
+            }
+            
+            .content-wrapper-hero {
+                padding: 40px 20px;
+            }
+            
+            .hero-course::before {
+                font-size: 140px;
+                right: 40px;
+            }
+            
+            .enrol-card-full-width {
+                padding: 20px 16px;
+                margin: 50px auto 40px;
+            }
+            
+            .enrol-card-full-width h3 {
+                font-size: 18px;
+                margin-bottom: 16px;
+            }
+            
+            .enrol-card-full-width table td {
+                padding: 10px 0;
+                font-size: 13px;
+            }
+            
+            .enrol-card-buttons-row {
+                gap: 12px;
+            }
+            
+            .enrol-card-full-width .btn-primary,
+            .enrol-card-full-width .btn-outline {
+                flex: 1;
+                padding: 10px 12px !important;
+                font-size: 13px;
+            }
+            
+            .highlights-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .related-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sidebar-sticky {
+                position: relative;
+                top: auto;
+            }
+            
+            .cta-banner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .cta-banner-text {
+                max-width: 100%;
+            }
+            
+            .cta-banner-buttons {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .sticky-header {
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-course {
+                height: auto;
+                padding: 32px 20px;
+            }
+            
+            .hero-course::before {
+                font-size: 100px;
+                right: 20px;
+                opacity: 0.02;
+            }
+            
+            .course-hero-title {
+                font-size: 28px;
+            }
+            
+            .course-hero-desc {
+                font-size: 15px;
+            }
+            
+            .meta-row {
+                gap: 16px;
+            }
+            
+            .content-wrapper-hero {
+                padding: 32px 16px;
+            }
+            
+            .enrol-card-full-width {
+                padding: 16px 12px;
+                margin: 40px auto 32px;
+            }
+            
+            .enrol-card-full-width h3 {
+                font-size: 16px;
+                margin-bottom: 14px;
+            }
+            
+            .enrol-card-full-width table td {
+                padding: 8px 0;
+                font-size: 12px;
+            }
+            
+            .enrol-card-buttons-row {
+                flex-direction: column;
+            }
+            
+            .enrol-card-full-width .btn-primary,
+            .enrol-card-full-width .btn-outline {
+                width: 100%;
+                padding: 10px 12px !important;
+                font-size: 13px;
+            }
+            
+            .tab-nav {
+                gap: 16px;
+                padding: 0 16px;
+                margin: 0 -16px;
+                font-size: 13px;
+            }
+            
+            /* Enquiry Form Mobile */
+            #enquiryForm {
+                padding: 24px 16px !important;
+            }
+            
+            .highlights-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .related-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .delivery-table td {
+                padding: 12px;
+                font-size: 14px;
+            }
+            
+            .sticky-header {
+                height: auto !important;
+                padding: 12px 20px !important;
+            }
+            
+            .sticky-header nav {
+                display: none;
+            }
+            
+            .cta-banner {
+                padding: 40px 20px;
+            }
+            
+            .cta-banner-text {
+                font-size: 24px;
+            }
+            
+            .cta-banner-buttons {
+                flex-direction: column;
+            }
+            
+            .mobile-enrol-bar {
+                display: block;
+            }
+            
+            body {
+                padding-bottom: 56px;
+            }
+            
+            /* Form styling for mobile */
+            #enquiryForm > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .category-badges {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .meta-row {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .cta-banner-text {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+        }
+        
+        /* Sticky Navigation Styles */
+        .sticky-nav a {
+            color: var(--near-black);
+        }
+        
+        .sticky-nav a.active {
+            color: var(--primary-blue);
+            border-bottom-color: var(--primary-blue);
+        }
+        
+        .sticky-nav a:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Courses Dropdown */
+        .courses-dropdown-container {
+            position: relative;
+        }
+        
+        .courses-dropdown-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--near-black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0;
+        }
+        
+        .courses-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(56, 82, 180, 0.15);
+            padding: 0;
+            min-width: 900px;
+            margin-top: 8px;
+            display: none;
+            z-index: 1000;
+            grid-template-columns: 250px 1fr;
+            gap: 0;
+        }
+        
+        .courses-dropdown-menu.active {
+            display: grid;
+        }
+        
+        .dropdown-tabs-section {
+            border-right: 1px solid var(--blue-tint);
+            padding: 24px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dropdown-tab {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--near-black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            text-align: left;
+        }
+        
+        .dropdown-tab:hover {
+            background: var(--blue-tint);
+            color: var(--primary-blue);
+        }
+        
+        .dropdown-tab.active {
+            background: var(--blue-tint);
+            color: var(--primary-blue);
+            border-left-color: var(--amber-cta);
+        }
+        
+        .dropdown-courses-section {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .dropdown-course-item {
+            display: none;
+        }
+        
+        .dropdown-course-item.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .dropdown-course-card {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-course-card:hover {
+            box-shadow: 0 4px 12px rgba(56, 82, 180, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .dropdown-course-code {
+            font-size: 12px;
+            color: var(--amber-cta);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .dropdown-course-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--near-black);
+            margin-bottom: 8px;
+        }
+        
+        .dropdown-course-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .courses-dropdown-menu {
+                min-width: auto;
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 1. ANNOUNCEMENT BAR -->
+<div style="background-color: white; color: var(--near-black); padding: 12px 20px; font-size: 12px;">
+    <div class="announcement-bar" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; text-align: center; gap: 16px;">
+        <div style="text-align: left;">
+            <i class="fas fa-star" style="color: var(--amber-cta); margin-right: 6px;"></i>
+            <span style="color: var(--primary-blue);">4.9 Student Rating</span>
+        </div>
+        <div style="color: var(--near-black);">
+            RTO No. 46473 | Nationally Recognised Training | Perth WA
+        </div>
+        <div style="text-align: right;">
+            <i class="fas fa-phone" style="color: var(--amber-cta); margin-right: 6px;"></i>
+            <span style="color: var(--primary-blue);">(08) 6289 6155</span>
+        </div>
+    </div>
+</div>
+
+<!-- 2. STICKY NAVIGATION HEADER -->
+<header class="sticky-header" id="mainHeader" style="height: 110px; display: flex; align-items: center; padding: 0 20px; background-color: var(--near-black);">
+    <div style="max-width: 1200px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        
+        <!-- Logo -->
+        <div style="min-width: 180px;">
+            <img src="assets/images/mark-logo.png" alt="MIA Logo" style="width: 190px; height: 190px; object-fit: contain;">
+        </div>
+        
+        <!-- Nav Links -->
+        <nav style="display: flex; gap: 32px; flex: 1; margin-left: 40px;">
+            <a href="index.html" class="nav-underline active" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Home</a>
+            <a href="#about" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">About</a>
+            <div class="courses-dropdown-container">
+                <button class="courses-dropdown-btn nav-underline" id="coursesDropdownBtn" onclick="toggleCoursesDropdown(event)" style="color: white;">
+                    Courses <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i>
+                </button>
+                <div class="courses-dropdown-menu" id="coursesDropdownMenu">
+                    <!-- Left Side: Tabs -->
+                    <div class="dropdown-tabs-section">
+                        <button class="dropdown-tab active" onclick="switchDropdownTab('accredited', event)" type="button">Accredited Short</button>
+                        <button class="dropdown-tab" onclick="switchDropdownTab('non-accredited', event)" type="button">Non-Accredited</button>
+                        <button class="dropdown-tab" onclick="switchDropdownTab('all', event)" type="button">All Courses</button>
+                    </div>
+                    
+                    <!-- Right Side: Courses Display -->
+                    <div class="dropdown-courses-section">
+                        <!-- Accredited Courses -->
+                        <div class="dropdown-course-item active" data-tab="accredited">
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC33821</div>
+                                <div class="dropdown-course-title">Certificate III in Individual Support</div>
+                                <div class="dropdown-course-desc">Nationally recognised qualification for disability and aged care support workers.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC43815</div>
+                                <div class="dropdown-course-title">Certificate IV in Ageing Support</div>
+                                <div class="dropdown-course-desc">Advanced training for aged care professionals seeking leadership roles.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Non-Accredited Courses -->
+                        <div class="dropdown-course-item" data-tab="non-accredited">
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">WS001</div>
+                                <div class="dropdown-course-title">First Aid & CPR Workshop</div>
+                                <div class="dropdown-course-desc">Professional first aid and CPR certification course for healthcare professionals.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">WS002</div>
+                                <div class="dropdown-course-title">Mindfulness in Care</div>
+                                <div class="dropdown-course-desc">Professional development workshop on mindfulness practices in aged care.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">WS003</div>
+                                <div class="dropdown-course-title">Communication Skills</div>
+                                <div class="dropdown-course-desc">Enhance communication skills for better client and team interactions.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- All Courses -->
+                        <div class="dropdown-course-item" data-tab="all">
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC33821</div>
+                                <div class="dropdown-course-title">Certificate III in Individual Support</div>
+                                <div class="dropdown-course-desc">Nationally recognised qualification for disability and aged care support workers.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC43815</div>
+                                <div class="dropdown-course-title">Certificate IV in Ageing Support</div>
+                                <div class="dropdown-course-desc">Advanced training for aged care professionals seeking leadership roles.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#blog" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Testimonials</a>
+            <a href="#faq" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Pricing</a>
+            <a href="#contact" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Contact</a>
+        </nav>
+        
+        <!-- Enrol CTA -->
+        <button class="btn-primary" style="margin-left: auto; min-width: 160px;">Enrol Now <i class="fas fa-arrow-right" style="font-size: 12px;"></i></button>
+
+    </div>
+</header>
+
+<!-- CD1: HERO SECTION -->
+<section class="hero-course">
+</section>
+
+<!-- CD2: HERO TOP SECTION -->
+<div class="content-wrapper-hero">
+    <div style="width: 100%;">
+        <!-- HERO TOP CONTENT (LEFT SIDE) -->
+        <div class="hero-top">
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="#courses">Courses</a>
+            <span class="breadcrumb-sep">/</span>
+            <a href="#accredited">Accredited Short Courses</a>
+            <span class="breadcrumb-sep">/</span>
+            <span>Provide First Aid</span>
+        </div>
+        
+        <!-- Category Badges -->
+        <div class="category-badges">
+            <div class="badge-amber"><i class="fas fa-certificate"></i> Accredited Short Course</div>
+            <div class="badge-blue">HLTAID011</div>
+        </div>
+        
+        <!-- Title & Description -->
+        <h1 class="course-hero-title">Provide First Aid</h1>
+        <p class="course-hero-desc">Get nationally recognised first aid certification in just one day. Emergency response training & CPR techniques for healthcare professionals.</p>
+        
+        <!-- Meta Row -->
+        <div class="meta-row">
+            <div class="meta-item">
+                <i class="fas fa-map-marker-alt meta-icon"></i>
+                <span>Perth WA</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-clock meta-icon"></i>
+                <span>1 Day</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-scroll meta-icon"></i>
+                <span>Nationally Recognised</span>
+            </div>
+            <div class="meta-item">
+                <i class="fas fa-check meta-icon"></i>
+                <span>NDIS Applicable</span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- FULL WIDTH ENROL CARD - BELOW HERO, ABOVE CONTENT -->
+<div class="enrol-card-full-width" id="enrollCard">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <!-- Title -->
+        <h3 style="font-family: 'Nunito', sans-serif; font-size: 24px; font-weight: 700;">Enrol in This Course</h3>
+        
+        <!-- Details Table -->
+        <table>
+            <tr>
+                <td>Total Cost</td>
+                <td>AUD $99</td>
+            </tr>
+            <tr>
+                <td>Duration</td>
+                <td>1 Day + Online (Pre-reading)</td>
+            </tr>
+            <tr>
+                <td>Intake</td>
+                <td>Weekly</td>
+            </tr>
+            <tr>
+                <td>Delivery Days</td>
+                <td>Subject to availability</td>
+            </tr>
+            <tr>
+                <td>Class Time</td>
+                <td>9:00 AM-5:00 PM</td>
+            </tr>
+        </table>
+        
+        <!-- Buttons Row -->
+        <div class="enrol-card-buttons-row">
+            <button class="btn-primary" onclick="enrollNow();">Enrol Now <i class="fas fa-arrow-right"></i></button>
+            <button class="btn-outline">Download Course Info</button>
+        </div>
+    </div>
+</div>
+
+<!-- MAIN CONTENT WRAPPER - NO GRID -->
+<div style="display: flex; flex-direction: column; max-width: 1200px; margin: 0 auto; padding: 0 20px; gap: 40px;">
+    <!-- SIDEBAR - HIDDEN -->
+    <div class="sidebar-top" style="display: none;">
+        <aside class="sidebar">
+            <div class="sidebar-sticky">
+                <!-- Enrol Card -->
+                <div class="enrol-card">
+                    <h3 class="enrol-card-title">Enrol in This Course</h3>
+                    
+                    <div class="enrol-buttons">
+                        <button class="btn-primary" onclick="enrollNow();" style="width: 100%; padding: 14px;">Enrol Now <i class="fas fa-arrow-right"></i></button>
+                        <button class="btn-outline" style="width: 100%; padding: 14px;">Download Course Info</button>
+                    </div>
+                    
+                    <div class="enrol-card-divider"></div>
+                    
+                    <div class="key-details">
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="fas fa-clock detail-icon"></i> Duration</span>
+                            <span class="detail-value">1 Day</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="fas fa-map-marker-alt detail-icon"></i> Location</span>
+                            <span class="detail-value">Perth WA</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="fas fa-users detail-icon"></i> Mode</span>
+                            <span class="detail-value">Face-to-Face</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="fas fa-certificate detail-icon"></i> Certificate</span>
+                            <span class="detail-value">Same Day</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label"><i class="fas fa-building detail-icon"></i> RTO</span>
+                            <span class="detail-value">46473</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Card -->
+                <div class="contact-card" style="display: none;">
+                    <h4 class="contact-card-title">Have Questions?</h4>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <a href="tel:0862896155" class="contact-link">(08) 6289 6155</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <a href="mailto:info@mia.edu.au" class="contact-link">info@mia.edu.au</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <span style="color: var(--near-black);">Perth, WA</span>
+                    </div>
+                </div>
+                
+                <!-- Share Section -->
+                <div class="share-section" style="display: none;">
+                    <div class="share-text">Share This Course</div>
+                    <div class="share-icons">
+                        <div class="share-icon" onclick="shareOnLinkedIn();" title="Share on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="share-icon" onclick="shareOnFacebook();" title="Share on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="share-icon" onclick="shareOnEmail();" title="Share via Email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+    
+    <!-- STICKY COURSE NAVIGATION -->
+    <div class="sticky-nav" style="position: sticky; top: 110px; background: white; border-bottom: 2px solid var(--blue-tint); z-index: 50; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow-x: auto;">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 0; min-width: max-content;">
+            <a href="#overview-section" style="flex: 0 1 auto; min-width: 140px; padding: 16px 20px; text-decoration: none; color: var(--near-black); font-weight: 600; font-size: 14px; text-align: center; border-bottom: 3px solid transparent; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-book"></i> Overview
+            </a>
+            <a href="#why-section" style="flex: 0 1 auto; min-width: 160px; padding: 16px 20px; text-decoration: none; color: var(--near-black); font-weight: 600; font-size: 14px; text-align: center; border-bottom: 3px solid transparent; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-lightbulb"></i> Why This Course
+            </a>
+            <a href="#core-section" style="flex: 0 1 auto; min-width: 140px; padding: 16px 20px; text-decoration: none; color: var(--near-black); font-weight: 600; font-size: 14px; text-align: center; border-bottom: 3px solid transparent; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-layer-group"></i> Core Units
+            </a>
+            <a href="#career-section" style="flex: 0 1 auto; min-width: 140px; padding: 16px 20px; text-decoration: none; color: var(--near-black); font-weight: 600; font-size: 14px; text-align: center; border-bottom: 3px solid transparent; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-briefcase"></i> Careers
+            </a>
+            <a href="#faq-section" style="flex: 0 1 auto; min-width: 115px; padding: 16px 20px; text-decoration: none; color: var(--near-black); font-weight: 600; font-size: 14px; text-align: center; border-bottom: 3px solid transparent; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-question-circle"></i> FAQ
+            </a>
+            <a href="#enquiry-section" style="flex: 0 1 auto; min-width: 140px; padding: 16px 20px; text-decoration: none; color: white; font-weight: 600; font-size: 14px; text-align: center; background: var(--primary-blue); border-radius: 6px; margin: 8px 12px; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <i class="fas fa-pen"></i> Enquire
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT - APPEARS BELOW SIDEBAR ON MOBILE -->
+    <div class="main-content">
+        <!-- Tab Navigation (Hidden - All content displayed linearly below) -->
+        <div class="tab-nav">
+            <button class="tab-btn active" data-tab="overview">Overview</button>
+            <button class="tab-btn" data-tab="learning">What You'll Learn</button>
+            <button class="tab-btn" data-tab="requirements">Entry Requirements</button>
+            <button class="tab-btn" data-tab="delivery">Delivery</button>
+            <button class="tab-btn" data-tab="faq">FAQ</button>
+        </div>
+        
+        <!-- OVERVIEW SECTION -->
+        <div id="overview-tab" class="tab-content active">
+            <div id="overview-section" style="scroll-margin-top: 100px;">
+                <h3 class="section-title" style="border-top: none; margin-top: 0; padding-top: 0;">Overview</h3>
+                
+                <p class="overview-text">
+                    The Provide First Aid course is the most comprehensive first aid qualification available. Delivered over one intensive day, this nationally recognised course equips you with the skills and knowledge to respond confidently to medical emergencies in any setting.
+                </p>
+                
+                <p class="overview-text">
+                    Whether you're a healthcare professional, trainer, or want to build your emergency response capabilities, this course meets industry standards and is accepted across Australia.
+                </p>
+                
+                <h3 id="why-section" style="font-size: 32px; font-weight: 800; margin-bottom: 16px; color: var(--near-black); margin-top: 60px; padding-top: 48px; border-top: 2px solid var(--blue-tint);">Why Study This Course at Mark Institute Australia?</h3>
+                <p style="font-size: 17px; color: #666; margin-bottom: 50px; line-height: 1.8; max-width: 700px;">We're committed to delivering quality training that makes a real difference. Here's what sets us apart:</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-bottom: 60px;">
+                    <!-- Reason 1 -->
+                    <div style="background: white; border: 2px solid var(--blue-tint); border-radius: 16px; padding: 32px 24px; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; gap: 24px; text-align: center;" class="reason-card">
+                        <div style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; color: var(--amber-cta); margin: 0 auto; box-shadow: 0 12px 40px rgba(56, 82, 180, 0.3);">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">RTO Accredited & Nationally Recognised</h4>
+                        <p style="font-size: 15px; color: #666; margin: 0; line-height: 1.7;">Our credentials are verified and trusted across all Australian states and territories</p>
+                    </div>
+                    
+                    <!-- Reason 2 -->
+                    <div style="background: white; border: 2px solid var(--blue-tint); border-radius: 16px; padding: 32px 24px; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; gap: 24px; text-align: center;" class="reason-card">
+                        <div style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; color: var(--amber-cta); margin: 0 auto; box-shadow: 0 12px 40px rgba(56, 82, 180, 0.3);">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Experienced Qualified Trainers</h4>
+                        <p style="font-size: 15px; color: #666; margin: 0; line-height: 1.7;">Learn from professionals with real-world expertise and passion for first aid training</p>
+                    </div>
+                    
+                    <!-- Reason 3 -->
+                    <div style="background: white; border: 2px solid var(--blue-tint); border-radius: 16px; padding: 32px 24px; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; gap: 24px; text-align: center;" class="reason-card">
+                        <div style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; color: var(--amber-cta); margin: 0 auto; box-shadow: 0 12px 40px rgba(56, 82, 180, 0.3);">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Practical Hands-On Training</h4>
+                        <p style="font-size: 15px; color: #666; margin: 0; line-height: 1.7;">Real-world scenarios, interactive demos, and practice with actual CPR mannequins & AED devices</p>
+                    </div>
+                    
+                    <!-- Reason 4 -->
+                    <div style="background: white; border: 2px solid var(--blue-tint); border-radius: 16px; padding: 32px 24px; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; gap: 24px; text-align: center;" class="reason-card">
+                        <div style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; color: var(--amber-cta); margin: 0 auto; box-shadow: 0 12px 40px rgba(56, 82, 180, 0.3);">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Certificate Same Day</h4>
+                        <p style="font-size: 15px; color: #666; margin: 0; line-height: 1.7;">Receive your nationally recognised credential immediately upon course completion</p>
+                    </div>
+                    
+                    <!-- Reason 5 -->
+                    <div style="background: white; border: 2px solid var(--blue-tint); border-radius: 16px; padding: 32px 24px; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; gap: 24px; text-align: center;" class="reason-card">
+                        <div style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; color: var(--amber-cta); margin: 0 auto; box-shadow: 0 12px 40px rgba(56, 82, 180, 0.3);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Small Class Sizes</h4>
+                        <p style="font-size: 15px; color: #666; margin: 0; line-height: 1.7;">Personalised attention, tailored learning experience, and one-on-one guidance from trainers</p>
+                    </div>
+                    
+                    <!-- Reason 6 -->
+                    <div style="background: white; border: 2px solid var(--blue-tint); border-radius: 16px; padding: 32px 24px; transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column; gap: 24px; text-align: center;" class="reason-card">
+                        <div style="width: 80px; height: 80px; background: var(--primary-blue); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; color: var(--amber-cta); margin: 0 auto; box-shadow: 0 12px 40px rgba(56, 82, 180, 0.3);">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4 style="font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Career Ready Skills</h4>
+                        <p style="font-size: 15px; color: #666; margin: 0; line-height: 1.7;">Industry-relevant training that enhances your career prospects and employment opportunities</p>
+                    </div>
+                </div>
+                
+                <style>
+                    .reason-card {
+                        animation: slideUp 0.6s var(--ease-smooth) forwards;
+                        opacity: 0;
+                        transform: translateY(32px);
+                    }
+                    
+                    .reason-card:nth-child(1) { animation-delay: 0s; }
+                    .reason-card:nth-child(2) { animation-delay: 0.1s; }
+                    .reason-card:nth-child(3) { animation-delay: 0.2s; }
+                    .reason-card:nth-child(4) { animation-delay: 0.3s; }
+                    .reason-card:nth-child(5) { animation-delay: 0.4s; }
+                    .reason-card:nth-child(6) { animation-delay: 0.5s; }
+                    
+                    .reason-card:hover {
+                        border-color: var(--primary-blue) !important;
+                        background: linear-gradient(135deg, white 0%, var(--off-white) 100%) !important;
+                        box-shadow: 0 16px 40px rgba(56, 82, 180, 0.15) !important;
+                        transform: translateY(-8px) !important;
+                    }
+                    
+                    .reason-card:hover h4 {
+                        color: var(--primary-blue) !important;
+                    }
+                    
+                    .reason-card:hover i {
+                        transform: scale(1.1) rotate(5deg);
+                    }
+                </style>
+            </div>
+        </div>
+        
+        <!-- LEARNING OUTCOMES SECTION -->
+        <div id="learning-tab" class="tab-content">
+            <div class="learning-outcomes" style="scroll-margin-top: 100px;">
+                <h3 class="section-title">What You'll Learn</h3>
+                
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Respond to life-threatening emergencies with confidence and skill</div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Perform CPR and rescue breathing techniques on adults and children</div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Manage severe bleeding, choking, and airway emergencies</div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Use automated external defibrillators (AED) effectively</div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Recognize signs of common medical conditions and injuries</div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Document incidents and communicate with emergency services</div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Understand duty of care and legal responsibilities</div>
+                </div>
+                <div class="outcome-item">
+                    <div class="outcome-icon">✓</div>
+                    <div class="outcome-text">Apply first aid principles in workplace and community settings</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ENTRY REQUIREMENTS SECTION -->
+        <div id="requirements-tab" class="tab-content">
+            <div class="learning-outcomes" style="scroll-margin-top: 100px;">
+                <h3 class="section-title">Entry Requirements</h3>
+                
+                <div class="requirement-card">
+                    <div class="requirement-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="requirement-text">No Prior Experience Needed</div>
+                </div>
+                <div class="requirement-card">
+                    <div class="requirement-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="requirement-text">Basic English Language Skills (reading, writing, speaking)</div>
+                </div>
+                <div class="requirement-card success">
+                    <div class="requirement-icon"><i class="fas fa-birthday-cake"></i></div>
+                    <div class="requirement-text">Minimum Age: 16 Years</div>
+                </div>
+                <p class="overview-text" style="margin-top: 24px;">
+                    <strong>Health Requirements:</strong> Participants must be physically able to perform CPR and practical demonstrations. Please inform us of any health conditions or mobility limitations when enrolling.
+                </p>
+            </div>
+        </div>
+        
+        <!-- DELIVERY SECTION -->
+        <div id="delivery-tab" class="tab-content">
+            <div class="learning-outcomes" style="scroll-margin-top: 100px;">
+                <h3 class="section-title">Delivery Information</h3>
+                
+                <table class="delivery-table">
+                    <tr>
+                        <td>Training Mode</td>
+                        <td>Face-to-Face + Practical Demonstration</td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>Perth WA (Our Training Centre)</td>
+                    </tr>
+                    <tr>
+                        <td>Duration</td>
+                        <td>1 Day (8 hours)</td>
+                    </tr>
+                    <tr>
+                        <td>Class Size</td>
+                        <td>Maximum 12 participants</td>
+                    </tr>
+                    <tr>
+                        <td>Assessment</td>
+                        <td>Written & Practical Demonstration</td>
+                    </tr>
+                </table>
+                
+                <!-- Units of Competency -->
+                <h3 id="core-section" class="section-title" style="border-top: 1px solid var(--blue-tint); padding-top: 24px; margin-top: 48px;">Units of Competency</h3>
+                
+                <!-- Tabs for Core & Elective -->
+                <div style="display: flex; gap: 0; border-bottom: 2px solid var(--blue-tint); margin-bottom: 24px;">
+                    <button id="core-tab-btn" style="background: none; border: none; padding: 12px 20px; font-size: 14px; font-weight: 600; color: var(--primary-blue); cursor: pointer; border-bottom: 3px solid var(--primary-blue); position: relative; bottom: -2px;">Core Units</button>
+                    <button id="elective-tab-btn" style="background: none; border: none; padding: 12px 20px; font-size: 14px; font-weight: 600; color: #999; cursor: pointer;">Elective Units</button>
+                </div>
+                
+                <!-- Core Units Table -->
+                <table class="delivery-table" id="core-units">
+                    <tr>
+                        <td>Unit Code</td>
+                        <td>Unit of Competency</td>
+                    </tr>
+                    <tr>
+                        <td>HLTAID011</td>
+                        <td>Provide First Aid</td>
+                    </tr>
+                    <tr>
+                        <td>HLTAID009</td>
+                        <td>Provide Cardiopulmonary Resuscitation</td>
+                    </tr>
+                </table>
+                
+                <!-- Elective Units Table (Hidden by default) -->
+                <table class="delivery-table" id="elective-units" style="display: none;">
+                    <tr>
+                        <td>Unit Code</td>
+                        <td>Unit of Competency</td>
+                    </tr>
+                    <tr>
+                        <td>HLTAID012</td>
+                        <td>Provide First Aid in an Education and Care Setting</td>
+                    </tr>
+                    <tr>
+                        <td>HLTAID010</td>
+                        <td>Provide First Aid in Remote or Isolated Sites</td>
+                    </tr>
+                </table>
+                
+                <script>
+                    document.getElementById('core-tab-btn').addEventListener('click', function() {
+                        document.getElementById('core-units').style.display = 'table';
+                        document.getElementById('elective-units').style.display = 'none';
+                        this.style.color = 'var(--primary-blue)';
+                        this.style.borderBottom = '3px solid var(--primary-blue)';
+                        document.getElementById('elective-tab-btn').style.color = '#999';
+                        document.getElementById('elective-tab-btn').style.borderBottom = 'none';
+                    });
+                    
+                    document.getElementById('elective-tab-btn').addEventListener('click', function() {
+                        document.getElementById('core-units').style.display = 'none';
+                        document.getElementById('elective-units').style.display = 'table';
+                        this.style.color = 'var(--primary-blue)';
+                        this.style.borderBottom = '3px solid var(--primary-blue)';
+                        document.getElementById('core-tab-btn').style.color = '#999';
+                        document.getElementById('core-tab-btn').style.borderBottom = 'none';
+                    });
+                </script>
+                
+<!-- CAREER OPPORTUNITIES SECTION -->
+<div id="career-section" style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+    <h3 class="section-title">Career Opportunities with Provide First Aid</h3>
+    <p style="font-size: 16px; color: #666; margin-bottom: 40px; line-height: 1.6;">
+        The Provide First Aid (HLTAID011) certification is highly valued across multiple industries. Discover diverse career paths and work environments where first aid skills are essential and in-demand:
+    </p>
+    
+    <!-- Career Tabs -->
+    <div style="display: flex; gap: 12px; margin-bottom: 32px; flex-wrap: wrap;">
+        <button id="roles-tab-btn" style="background: var(--primary-blue); color: white; border: 2px solid var(--primary-blue); padding: 12px 24px; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 8px; transition: all 0.3s ease;">Professional Roles</button>
+        <button id="environments-tab-btn" style="background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); padding: 12px 24px; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 8px; transition: all 0.3s ease;">Work Industries</button>
+        <button id="pathways-tab-btn" style="background: white; color: var(--primary-blue); border: 2px solid var(--primary-blue); padding: 12px 24px; font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 8px; transition: all 0.3s ease;">Skill Applications</button>
+    </div>
+    
+    <!-- Professional Roles Tab -->
+    <div id="roles-tab" style="display: block;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">Healthcare Worker</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Support patients in hospitals, clinics, and care facilities</p>
+            </div>
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">Workplace First Aid Officer</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Manage workplace health and safety emergencies</p>
+            </div>
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">Safety Officer</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Develop and implement safety protocols and procedures</p>
+            </div>
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">Security Professional</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Respond to medical emergencies in secure environments</p>
+            </div>
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">Sports Coach / Instructor</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Provide emergency care during training and events</p>
+            </div>
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">Community Health Worker</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Support community education and emergency response</p>
+            </div>
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">Emergency Responder / Volunteer</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Assist in emergency services and disaster response</p>
+            </div>
+            <div style="background: #F0F4FB; border-left: 4px solid var(--primary-blue); padding: 20px; border-radius: 8px;">
+                <h4 style="margin: 0 0 8px 0; color: var(--primary-blue); font-size: 15px; font-weight: 700;">First Aid Trainer</h4>
+                <p style="margin: 0; color: #666; font-size: 13px;">Educate and train others in first aid techniques</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Work Industries Tab -->
+    <div id="environments-tab" style="display: none;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px; color: var(--primary-blue);"><i class="fas fa-hospital-user"></i></div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Healthcare & Hospitals</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Emergency departments, clinics, and medical facilities</p>
+            </div>
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px; color: var(--primary-blue);"><i class="fas fa-building"></i></div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Corporate Workplaces</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Office, manufacturing, construction, and industrial sites</p>
+            </div>
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px; color: var(--primary-blue);"><i class="fas fa-school"></i></div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Education Sector</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Schools, universities, and educational institutions</p>
+            </div>
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px;">⚽</div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Sports & Recreation</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Gyms, sports clubs, and fitness centers</p>
+            </div>
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px;">🎉</div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Events & Entertainment</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Concerts, festivals, and large-scale events</p>
+            </div>
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px;">✈️</div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Travel & Transportation</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Airlines, railways, cruise ships, and travel services</p>
+            </div>
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px;">🚔</div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Emergency Services</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Police, fire, ambulance, and rescue services</p>
+            </div>
+            <div style="background: white; border: 2px solid var(--blue-tint); padding: 24px; border-radius: 12px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px;">🏘️</div>
+                <h4 style="margin: 0 0 8px 0; color: var(--near-black); font-weight: 700;">Community & Aged Care</h4>
+                <p style="margin: 0; color: #666; font-size: 14px;">Residential facilities and community health services</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Skill Applications Tab -->
+    <div id="pathways-tab" style="display: none;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="background: #F0F7FF; border: 2px dashed var(--primary-blue); padding: 24px; border-radius: 12px;">
+                <h4 style="margin: 0 0 12px 0; color: var(--primary-blue); font-weight: 700; font-size: 16px;">🎯 Immediate Employment</h4>
+                <p style="margin: 0; color: #666; line-height: 1.6;">Entry-level positions in healthcare, workplace health & safety, or community services. Your first aid certification is immediately recognized and required by employers globally.</p>
+            </div>
+            <div style="text-align: center; font-size: 24px; color: var(--primary-blue);">↓</div>
+            <div style="background: #FFF3E0; border: 2px dashed #FF9800; padding: 24px; border-radius: 12px;">
+                <h4 style="margin: 0 0 12px 0; color: #E65100; font-weight: 700; font-size: 16px;">📚 Professional Development</h4>
+                <p style="margin: 0; color: #666; line-height: 1.6;">Progress to advanced certifications like CPR/AED, First Aid Instruction, or specialized medical training. Build expertise in your chosen field.</p>
+            </div>
+            <div style="text-align: center; font-size: 24px; color: #FF9800;">↓</div>
+            <div style="background: #E8F5E9; border: 2px dashed #4CAF50; padding: 24px; border-radius: 12px;">
+                <h4 style="margin: 0 0 12px 0; color: #2E7D32; font-weight: 700; font-size: 16px;">🌟 Career Leadership</h4>
+                <p style="margin: 0; color: #666; line-height: 1.6;">Move into supervisory, management, or training roles. Use your first aid knowledge to lead safety initiatives and mentor others.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function switchCareerTab(tabName, btnElement) {
+            document.getElementById('roles-tab').style.display = 'none';
+            document.getElementById('environments-tab').style.display = 'none';
+            document.getElementById('pathways-tab').style.display = 'none';
+            document.getElementById(tabName).style.display = 'block';
+            
+            // Reset all buttons to white background
+            document.getElementById('roles-tab-btn').style.background = 'white';
+            document.getElementById('roles-tab-btn').style.color = 'var(--primary-blue)';
+            
+            document.getElementById('environments-tab-btn').style.background = 'white';
+            document.getElementById('environments-tab-btn').style.color = 'var(--primary-blue)';
+            
+            document.getElementById('pathways-tab-btn').style.background = 'white';
+            document.getElementById('pathways-tab-btn').style.color = 'var(--primary-blue)';
+            
+            // Set active button to blue background
+            btnElement.style.background = 'var(--primary-blue)';
+            btnElement.style.color = 'white';
+        }
+        
+        document.getElementById('roles-tab-btn').addEventListener('click', function() {
+            switchCareerTab('roles-tab', this);
+        });
+        
+        document.getElementById('environments-tab-btn').addEventListener('click', function() {
+            switchCareerTab('environments-tab', this);
+        });
+        
+        document.getElementById('pathways-tab-btn').addEventListener('click', function() {
+            switchCareerTab('pathways-tab', this);
+        });
+    </script>
+</div>
+                
+                <h3 class="section-title" style="border-top: 1px solid var(--blue-tint); padding-top: 24px; margin-top: 48px;">What's Included?</h3>
+                <ul style="list-style: none; padding: 0; margin-bottom: 24px;">
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <span style="color: var(--amber-cta); font-weight: 700;">✓</span>
+                        <span>Comprehensive training manual and workbook</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <span style="color: var(--amber-cta); font-weight: 700;">✓</span>
+                        <span>Nationally recognised certificate (issued same day upon completion)</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <span style="color: var(--amber-cta); font-weight: 700;">✓</span>
+                        <span>Access to online resources and refresher materials</span>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 12px;">
+                        <span style="color: var(--amber-cta); font-weight: 700;">✓</span>
+                        <span>CPR mannequins and AED trainers</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- FAQ SECTION -->
+        <div id="faq-tab" class="tab-content">
+            <div id="faq-section" class="faq-section" style="margin-top: 0; padding-top: 0; border-top: none; scroll-margin-top: 100px;">
+                <h3 class="section-title" style="border-top: none; margin-top: 0; padding-top: 0;">Frequently Asked Questions</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is this course nationally recognised?</span>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-text">
+                            Yes. The Provide First Aid course is nationally recognized and meets the requirements of major Australian first aid standards. Your certificate is valid for 3 years and accepted across all Australian states and territories.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I get my certificate on the same day?</span>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-text">
+                            Absolutely. Upon successful completion of the course and passing the assessment, you'll receive your nationally recognised certificate on the same day.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I have no prior first aid experience?</span>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-text">
+                            No prior experience is necessary. Our trainers accommodate all levels and ensure everyone completes the course with confidence. We start from the basics and progress through to advanced techniques.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long is the certificate valid?</span>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-text">
+                            Your Provide First Aid certificate is valid for 3 years from the date of issue. We recommend refresher training before renewal to stay current with the latest techniques.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is this course NDIS compliant?</span>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-text">
+                            Yes, this course is NDIS compliant and can often be funded through NDIS support packages. Please contact us for more information about funding options specific to your circumstances.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I enrol if I have medical conditions or mobility limitations?</span>
+                        <i class="fas fa-chevron-down faq-chevron"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-text">
+                            We welcome all participants and can provide reasonable adjustments. Please discuss your specific needs with us during enrollment so we can ensure the course is accessible and suitable for you.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ENQUIRY FORM SECTION -->
+<section id="enquiry-section" style="background: linear-gradient(135deg, var(--off-white) 0%, white 100%); padding: 80px 20px; margin-top: 60px; scroll-margin-top: 100px;">
+    <div style="max-width: 1000px; margin: 0 auto;">
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom: 60px; animation: slideUp 0.6s var(--ease-smooth) 0s both;">
+            <h2 style="font-family: 'Nunito', sans-serif; font-size: 36px; font-weight: 800; color: var(--near-black); margin-bottom: 12px; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--amber-cta) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Get Started Today</h2>
+            <p style="font-size: 16px; color: #666; max-width: 600px; margin: 0 auto; line-height: 1.8;">Join hundreds of professionals who have transformed their careers with our Provide First Aid certification. Just fill out the form and our team will get back to you within 24 hours.</p>
+        </div>
+        
+        <!-- Main Form Container -->
+        <form id="enquiryForm" style="background: white; border-radius: 16px; box-shadow: 0 20px 60px rgba(56, 82, 180, 0.1); overflow: hidden;">
+            
+            <!-- Form Background Pattern -->
+            <div style="position: absolute; top: 0; right: 0; width: 300px; height: 300px; background: radial-gradient(circle, rgba(56, 82, 180, 0.05) 0%, transparent 70%); border-radius: 50%; pointer-events: none; margin-top: -100px; margin-right: -100px;"></div>
+            <div style="position: relative; padding: 60px 50px;">
+                
+                <!-- Section 1: Personal Details -->
+                <div style="margin-bottom: 48px; animation: slideUp 0.6s var(--ease-smooth) 0.1s both;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 2px solid var(--blue-tint);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-light) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 700;">1</div>
+                        <h3 style="font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Your Information</h3>
+                    </div>
+                    
+                    <div class="form-row-2col" style="animation: slideUp 0.6s var(--ease-smooth) 0.15s both;">
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--near-black); margin-bottom: 10px; font-size: 14px; letter-spacing: 0.3px;">
+                                <i class="fas fa-user" style="color: var(--primary-blue); margin-right: 8px; width: 16px;"></i>Full Name <span style="color: var(--amber-cta);">*</span>
+                            </label>
+                            <input type="text" name="fullName" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--blue-tint); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background-color: white;" onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(56, 82, 180, 0.1)'" onblur="this.style.borderColor='var(--blue-tint)'; this.style.boxShadow='none'" placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--near-black); margin-bottom: 10px; font-size: 14px; letter-spacing: 0.3px;">
+                                <i class="fas fa-envelope" style="color: var(--primary-blue); margin-right: 8px; width: 16px;"></i>Email Address <span style="color: var(--amber-cta);">*</span>
+                            </label>
+                            <input type="email" name="email" required style="width: 100%; padding: 14px 16px; border: 2px solid var(--blue-tint); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background-color: white;" onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(56, 82, 180, 0.1)'" onblur="this.style.borderColor='var(--blue-tint)'; this.style.boxShadow='none'" placeholder="john@example.com">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 2: Contact Details -->
+                <div style="margin-bottom: 48px; animation: slideUp 0.6s var(--ease-smooth) 0.2s both;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 2px solid var(--blue-tint);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--amber-cta) 0%, #F3BE7A 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 700;">2</div>
+                        <h3 style="font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Contact & Location</h3>
+                    </div>
+                    
+                    <div class="form-row-2col" style="animation: slideUp 0.6s var(--ease-smooth) 0.25s both;">
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--near-black); margin-bottom: 10px; font-size: 14px; letter-spacing: 0.3px;">
+                                <i class="fas fa-phone" style="color: var(--primary-blue); margin-right: 8px; width: 16px;"></i>Phone Number
+                            </label>
+                            <input type="tel" name="phone" style="width: 100%; padding: 14px 16px; border: 2px solid var(--blue-tint); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background-color: white;" onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(56, 82, 180, 0.1)'" onblur="this.style.borderColor='var(--blue-tint)'; this.style.boxShadow='none'" placeholder="(08) 6289 6155">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--near-black); margin-bottom: 10px; font-size: 14px; letter-spacing: 0.3px;">
+                                <i class="fas fa-map-marker-alt" style="color: var(--primary-blue); margin-right: 8px; width: 16px;"></i>Preferred Location
+                            </label>
+                            <select name="location" style="width: 100%; padding: 14px 16px; border: 2px solid var(--blue-tint); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background-color: white; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%223852B4%22%3e%3cpath d=%22M12 17l-5-5h10z%22/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 10px center; background-size: 20px; padding-right: 40px;" onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(56, 82, 180, 0.1)'" onblur="this.style.borderColor='var(--blue-tint)'; this.style.boxShadow='none'">
+                                <option value="">Select a location</option>
+                                <option value="Perth">Perth, WA</option>
+                                <option value="Online">Online</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 3: Course Preferences -->
+                <div style="margin-bottom: 48px; animation: slideUp 0.6s var(--ease-smooth) 0.3s both;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 2px solid var(--blue-tint);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-light) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 700;">3</div>
+                        <h3 style="font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Course Preferences</h3>
+                    </div>
+                    
+                    <div class="form-row-2col" style="animation: slideUp 0.6s var(--ease-smooth) 0.35s both;">
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--near-black); margin-bottom: 10px; font-size: 14px; letter-spacing: 0.3px;">
+                                <i class="fas fa-calendar" style="color: var(--primary-blue); margin-right: 8px; width: 16px;"></i>Preferred Start Date
+                            </label>
+                            <input type="date" name="startDate" style="width: 100%; padding: 14px 16px; border: 2px solid var(--blue-tint); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background-color: white;" onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(56, 82, 180, 0.1)'" onblur="this.style.borderColor='var(--blue-tint)'; this.style.boxShadow='none'">
+                        </div>
+                        <div>
+                            <label style="display: block; font-weight: 600; color: var(--near-black); margin-bottom: 10px; font-size: 14px; letter-spacing: 0.3px;">
+                                <i class="fas fa-graduation-cap" style="color: var(--primary-blue); margin-right: 8px; width: 16px;"></i>Your Experience Level
+                            </label>
+                            <select name="experience" style="width: 100%; padding: 14px 16px; border: 2px solid var(--blue-tint); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background-color: white; cursor: pointer; appearance: none; background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%223852B4%22%3e%3cpath d=%22M12 17l-5-5h10z%22/%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 10px center; background-size: 20px; padding-right: 40px;" onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(56, 82, 180, 0.1)'" onblur="this.style.borderColor='var(--blue-tint)'; this.style.boxShadow='none'">
+                                <option value="">Select experience level</option>
+                                <option value="Beginner">🟢 Beginner - No prior experience</option>
+                                <option value="Some">🟡 Some first aid experience</option>
+                                <option value="Experienced">🔵 Experienced - Looking to refresh</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Section 4: Message -->
+                <div style="margin-bottom: 32px; animation: slideUp 0.6s var(--ease-smooth) 0.4s both;">
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 2px solid var(--blue-tint);">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--amber-cta) 0%, #F3BE7A 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px; font-weight: 700;">4</div>
+                        <h3 style="font-family: 'Nunito', sans-serif; font-size: 18px; font-weight: 700; color: var(--near-black); margin: 0;">Additional Information</h3>
+                    </div>
+                    
+                    <label style="display: block; font-weight: 600; color: var(--near-black); margin-bottom: 12px; font-size: 14px; letter-spacing: 0.3px;">
+                        <i class="fas fa-message" style="color: var(--primary-blue); margin-right: 8px; width: 16px;"></i>Tell Us Your Goals
+                    </label>
+                    <textarea name="message" style="width: 100%; padding: 16px; border: 2px solid var(--blue-tint); border-radius: 10px; font-size: 14px; font-family: 'Inter', sans-serif; resize: vertical; min-height: 120px; transition: all 0.3s ease; background-color: white;" onfocus="this.style.borderColor='var(--primary-blue)'; this.style.boxShadow='0 0 0 3px rgba(56, 82, 180, 0.1)'" onblur="this.style.borderColor='var(--blue-tint)'; this.style.boxShadow='none'" placeholder="Tell us about your specific training needs, goals, or any questions..."></textarea>
+                </div>
+                
+                <!-- Agreement & Submit -->
+                <div style="animation: slideUp 0.6s var(--ease-smooth) 0.45s both;">
+                    <!-- Checkbox with better styling -->
+                    <div style="margin-bottom: 28px; padding: 16px; background: linear-gradient(135deg, rgba(56, 82, 180, 0.03) 0%, rgba(240, 141, 57, 0.03) 100%); border-radius: 10px; border: 1px solid rgba(56, 82, 180, 0.1); display: flex; gap: 12px; align-items: flex-start;">
+                        <input type="checkbox" id="agreeCheckbox" name="agree" required style="margin-top: 6px; cursor: pointer; accent-color: var(--primary-blue); width: 20px; height: 20px;">
+                        <label for="agreeCheckbox" style="font-size: 14px; color: #666; cursor: pointer; line-height: 1.6; flex: 1;">
+                            I agree to be contacted about this course and to receive information about other training programs. I understand my data will be handled according to privacy regulations.
+                        </label>
+                    </div>
+                    
+                    <!-- Submit Button with animation -->
+                    <button type="submit" style="width: 100%; background: linear-gradient(135deg, var(--amber-cta) 0%, #E67E22 100%); color: white; padding: 18px 24px; border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 10px; letter-spacing: 0.5px; box-shadow: 0 8px 24px rgba(240, 141, 57, 0.3);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 32px rgba(240, 141, 57, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 24px rgba(240, 141, 57, 0.3)'">
+                        <i class="fas fa-paper-plane"></i> Submit Enquiry
+                    </button>
+                    
+                    <p style="font-size: 12px; color: #999; margin-top: 12px; text-align: center; letter-spacing: 0.3px;">Your submission is secure and will be processed within 24 hours</p>
+                </div>
+            </div>
+        </form>
+        
+        <!-- Direct Contact Section -->
+        <div style="margin-top: 48px; text-align: center; animation: slideUp 0.6s var(--ease-smooth) 0.5s both;">
+            <p style="font-size: 14px; color: #666; margin-bottom: 20px; font-weight: 600; letter-spacing: 0.5px;">PREFER TO SPEAK WITH US DIRECTLY?</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="tel:0862896155" style="background: linear-gradient(135deg, var(--primary-blue) 0%, #5E7AC4 100%); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(56, 82, 180, 0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(56, 82, 180, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(56, 82, 180, 0.2)'">
+                    <i class="fas fa-phone"></i> Call Us Now
+                </a>
+                <a href="mailto:info@mia.edu.au" style="background: linear-gradient(135deg, var(--amber-cta) 0%, #F3BE7A 100%); color: white; padding: 14px 28px; border-radius: 10px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(240, 141, 57, 0.2);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 20px rgba(240, 141, 57, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(240, 141, 57, 0.2)'">
+                    <i class="fas fa-envelope"></i> Email Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CD3: RELATED COURSES -->
+<section class="related-section">
+    <div class="related-container">
+        <h2 class="related-heading">You Might Also Be Interested In</h2>
+        
+        <div class="related-cards">
+            <!-- Course 1 -->
+            <div class="course-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)'; this.style.transform='translateY(0)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">First Aid</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=200&fit=crop" alt="CPR Training" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 16px; font-weight: 800; margin: 0; line-height: 1.3;">HLTAID009 Provide CPR</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Learn professional CPR techniques in a focused 4-hour session.</p>
+                    
+                    <!-- Duration -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-clock" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>4 Hours</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>Perth</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';">View Course <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Course 2 -->
+            <div class="course-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(240, 141, 57, 0.15)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)'; this.style.transform='translateY(0)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">First Aid</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="https://images.unsplash.com/photo-1631217314831-c6227db76b6e?w=400&h=200&fit=crop" alt="Infant Care Training" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 16px; font-weight: 800; margin: 0; line-height: 1.3;">HLTAID010 First Aid for Children</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Specialized first aid training tailored for pediatric emergencies.</p>
+                    
+                    <!-- Duration -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-clock" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>1 Day</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>Perth</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';">View Course <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Course 3 -->
+            <div class="course-card" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)'; this.style.transform='translateY(0)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">First Aid</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="https://images.unsplash.com/photo-1631217314831-c6227db76b6e?w=400&h=200&fit=crop" alt="Emergency First Aid" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 16px; font-weight: 800; margin: 0; line-height: 1.3;">HLTAID012 Emergency First Aid</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Fast-tracked emergency first aid certification in 6 hours.</p>
+                    
+                    <!-- Duration -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-clock" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>6 Hours</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-map-marker-alt" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>Perth</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';">View Course <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT & SHARE SECTION - FULL WIDTH BEFORE CTA -->
+<section style="background-color: var(--off-white); padding: 60px 20px; margin-bottom: 40px;">
+    <div class="contact-share-grid">
+        <!-- Contact Card Full Width -->
+        <div style="background: white; border: 1px solid var(--blue-tint); border-radius: 16px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.05);">
+            <h4 style="font-family: 'Nunito', sans-serif; font-size: 20px; font-weight: 700; color: var(--near-black); margin-bottom: 24px;">Have Questions?</h4>
+            
+            <div style="display: flex; gap: 16px; margin-bottom: 20px; align-items: center;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--blue-tint); display: flex; align-items: center; justify-content: center; color: var(--primary-blue); font-size: 18px;">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div>
+                    <div style="font-size: 12px; color: #999; margin-bottom: 4px;">Call us</div>
+                    <a href="tel:0862896155" style="color: var(--primary-blue); text-decoration: none; font-size: 16px; font-weight: 600;">(08) 6289 6155</a>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 16px; margin-bottom: 20px; align-items: center;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--blue-tint); display: flex; align-items: center; justify-content: center; color: var(--primary-blue); font-size: 18px;">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                    <div style="font-size: 12px; color: #999; margin-bottom: 4px;">Email us</div>
+                    <a href="mailto:info@mia.edu.au" style="color: var(--primary-blue); text-decoration: none; font-size: 16px; font-weight: 600;">info@mia.edu.au</a>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--blue-tint); display: flex; align-items: center; justify-content: center; color: var(--primary-blue); font-size: 18px;">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                    <div style="font-size: 12px; color: #999; margin-bottom: 4px;">Visit us</div>
+                    <div style="color: var(--near-black); font-size: 16px; font-weight: 600;">Perth, WA</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Share Card Full Width -->
+        <div style="background: white; border: 1px solid var(--blue-tint); border-radius: 16px; padding: 32px; box-shadow: 0 4px 16px rgba(0,0,0,0.05); text-align: center;">
+            <h4 style="font-family: 'Nunito', sans-serif; font-size: 20px; font-weight: 700; color: var(--near-black); margin-bottom: 24px;">Share This Course</h4>
+            
+            <p style="font-size: 14px; color: #666; margin-bottom: 24px;">Help others discover this valuable course by sharing it with your network.</p>
+            
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--blue-tint); color: var(--primary-blue); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;" onclick="shareOnLinkedIn();" onmouseover="this.style.backgroundColor='var(--primary-blue)'; this.style.color='white';" onmouseout="this.style.backgroundColor='var(--blue-tint)'; this.style.color='var(--primary-blue)';" title="Share on LinkedIn">
+                    <i class="fab fa-linkedin-in" style="font-size: 20px;"></i>
+                </div>
+                <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--blue-tint); color: var(--primary-blue); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;" onclick="shareOnFacebook();" onmouseover="this.style.backgroundColor='var(--primary-blue)'; this.style.color='white';" onmouseout="this.style.backgroundColor='var(--blue-tint)'; this.style.color='var(--primary-blue)';" title="Share on Facebook">
+                    <i class="fab fa-facebook-f" style="font-size: 20px;"></i>
+                </div>
+                <div style="width: 50px; height: 50px; border-radius: 50%; background-color: var(--blue-tint); color: var(--primary-blue); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;" onclick="shareOnEmail();" onmouseover="this.style.backgroundColor='var(--primary-blue)'; this.style.color='white';" onmouseout="this.style.backgroundColor='var(--blue-tint)'; this.style.color='var(--primary-blue)';" title="Share via Email">
+                    <i class="fas fa-envelope" style="font-size: 20px;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CD4: CTA BANNER -->
+<section class="cta-banner" style="max-width: 1200px; margin: 60px auto;">
+    <div class="cta-banner-text">Ready to enrol? Secure your place today.</div>
+    <div class="cta-banner-buttons">
+        <button class="btn-primary" onclick="enrollNow();">Enrol Now <i class="fas fa-arrow-right"></i></button>
+        <button class="btn-ghost">Call Us <i class="fas fa-phone"></i></button>
+    </div>
+</section>
+
+<!-- Mobile Fixed Enrol Bar -->
+<div class="mobile-enrol-bar" id="mobileEnrolBar">
+    <button onclick="enrollNow();">Enrol Now <i class="fas fa-arrow-right"></i></button>
+</div>
+
+<!-- FOOTER -->
+<footer style="background-color: var(--near-black); color: white; border-top: 3px solid; border-image: linear-gradient(90deg, var(--primary-blue), var(--amber-cta)) 0 0 1;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 30px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 20px;">
+        
+        <!-- Brand Column -->
+        <div>
+            <h3 style="font-size: 16px; font-weight: 800; color: white; font-family: 'Nunito', sans-serif; margin-bottom: 4px;">Mark Institute Australia</h3>
+            <p style="font-size: 13px; color: var(--amber-cta); font-style: italic; margin-bottom: 16px; margin-top: 0;">"Engaging Hearts, Equipping Minds"</p>
+            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.6; margin-bottom: 20px;">
+                Empowering healthcare professionals across Perth with nationally recognised, NDIS-compliant training.
+            </p>
+            <div style="display: flex; gap: 12px;">
+                <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(56, 82, 180, 0.3); display: flex; align-items: center; justify-content: center; color: var(--amber-cta); transition: all 0.3s;">
+                    <i class="fab fa-facebook-f" style="font-size: 14px;"></i>
+                </a>
+                <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(56, 82, 180, 0.3); display: flex; align-items: center; justify-content: center; color: var(--amber-cta); transition: all 0.3s;">
+                    <i class="fab fa-instagram" style="font-size: 14px;"></i>
+                </a>
+                <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(56, 82, 180, 0.3); display: flex; align-items: center; justify-content: center; color: var(--amber-cta); transition: all 0.3s;">
+                    <i class="fab fa-linkedin-in" style="font-size: 14px;"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--amber-cta); font-family: 'Nunito', sans-serif; margin-bottom: 20px; text-transform: uppercase;">Quick Links</h4>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 10px;"><a href="index.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Home</a></li>
+                <li style="margin-bottom: 10px;"><a href="#about" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">About Us</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Blogs</a></li>
+                <li><a href="#faq" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <!-- Courses -->
+        <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--amber-cta); font-family: 'Nunito', sans-serif; margin-bottom: 20px; text-transform: uppercase;">Courses</h4>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Community Courses</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Accredited Courses</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Non Accredited Courses</a></li>
+                <li><a href="#contact" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <!-- Get In Touch -->
+        <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--amber-cta); font-family: 'Nunito', sans-serif; margin-bottom: 20px; text-transform: uppercase;">Get In Touch</h4>
+            <div style="margin-bottom: 16px;">
+                <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">Phone</div>
+                <a href="tel:0862896155" style="font-size: 14px; color: white; text-decoration: none; font-weight: 600;">(08) 6289 6155</a>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">Email</div>
+                <a href="mailto:admin@markinstitute.com.au" style="font-size: 14px; color: white; text-decoration: none; font-weight: 600;">admin@markinstitute.com.au</a>
+            </div>
+            <div>
+                <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">Address</div>
+                <div style="font-size: 13px; color: rgba(255, 255, 255, 0.85);">Level 2, Unit 4/353<br/>Shepperton Road<br/>East Victoria Park WA 6101</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Opening Hours Section -->
+    <div style="background-color: rgba(56, 82, 180, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 24px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+            <div>
+                <h4 style="font-size: 12px; font-weight: 700; color: var(--amber-cta); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">Opening Hours</h4>
+                <p style="font-size: 13px; color: rgba(255, 255, 255, 0.85); margin: 0; line-height: 1.8;">
+                    <strong>Mon – Fri:</strong> 09:00 AM – 05:00 PM<br/>
+                    <strong>Sat & Sun:</strong> Closed
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 16px 20px; text-align: center;">
+        <p style="font-size: 12px; color: rgba(255, 255, 255, 0.6); margin: 0;">
+            Copyright © 2026 Mark Institute Australia - RTO NUMBER 46473. All Rights Reserved.
+        </p>
+    </div>
+</footer>
+
+<script>
+    // Tab Navigation (hidden by default, kept for reference)
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.getAttribute('data-tab');
+            
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            tabContents.forEach(content => {
+                if (content.classList.contains('active')) {
+                    content.classList.add('exit');
+                    setTimeout(() => {
+                        content.classList.remove('active', 'exit');
+                    }, 150);
+                }
+            });
+            
+            setTimeout(() => {
+                document.getElementById(tabName + '-tab').classList.add('active');
+            }, 150);
+        });
+    });
+    
+    // FAQ Toggle
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            faqItems.forEach(faq => {
+                if (faq !== item && faq.classList.contains('open')) {
+                    faq.classList.remove('open');
+                }
+            });
+            
+            item.classList.toggle('open');
+        });
+    });
+    
+    // Mobile Enrol Bar Logic
+    const mobileEnrolBar = document.getElementById('mobileEnrolBar');
+    const enrollCard = document.getElementById('enrollCard');
+    
+    window.addEventListener('scroll', () => {
+        if (window.innerWidth <= 768) {
+            const enrollRect = enrollCard.getBoundingClientRect();
+            
+            if (enrollRect.top < window.innerHeight) {
+                mobileEnrolBar.classList.remove('show');
+            } else {
+                mobileEnrolBar.classList.add('show');
+            }
+        }
+    });
+    
+    // Share functions
+    function shareOnLinkedIn() {
+        const url = window.location.href;
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank', 'width=500,height=500');
+    }
+    
+    function shareOnFacebook() {
+        const url = window.location.href;
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'width=500,height=500');
+    }
+    
+    function shareOnEmail() {
+        const subject = encodeURIComponent('Check out this First Aid Course');
+        const body = encodeURIComponent('I found this great first aid course at Mark Institute Australia. You might be interested!');
+        window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+    
+    function enrollNow() {
+        // Scroll to enquiry section with smooth animation
+        const enquirySection = document.getElementById('enquiry-section');
+        if (enquirySection) {
+            enquirySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Focus on the first form field for better UX
+            setTimeout(() => {
+                const nameInput = document.querySelector('input[name="name"]');
+                if (nameInput) nameInput.focus();
+            }, 500);
+        }
+    }
+    
+    // Header scroll effect
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Intersection Observer for scroll reveals
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.highlight-card, .outcome-item, .requirement-card, .faq-item, .course-card').forEach(el => {
+        observer.observe(el);
+    });
+
+    // Sticky Navigation - Active Link Highlighting
+    const sections = [
+        { id: 'overview-section', link: '#overview-section' },
+        { id: 'why-section', link: '#why-section' },
+        { id: 'core-section', link: '#core-section' },
+        { id: 'career-section', link: '#career-section' },
+        { id: 'faq-section', link: '#faq-section' },
+        { id: 'enquiry-section', link: '#enquiry-section' }
+    ];
+
+    function updateStickyNav() {
+        const navLinks = document.querySelectorAll('[href^="#"]');
+        let currentSection = null;
+
+        for (let section of sections) {
+            const element = document.getElementById(section.id);
+            if (element) {
+                const rect = element.getBoundingClientRect();
+                if (rect.top <= 150) {
+                    currentSection = section.link;
+                }
+            }
+        }
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentSection && currentSection) {
+                link.classList.add('active');
+                link.style.borderBottomColor = 'var(--primary-blue)';
+            } else {
+                link.style.borderBottomColor = 'transparent';
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateStickyNav, { passive: true });
+    window.addEventListener('load', updateStickyNav);
+    updateStickyNav(); // Initial check
+    // Courses Dropdown
+    function toggleCoursesDropdown(event) {
+        event.preventDefault();
+        const menu = document.getElementById('coursesDropdownMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Switch dropdown tabs
+    function switchDropdownTab(tabName, event) {
+        event.preventDefault();
+        
+        // Update active tab button
+        const buttons = document.querySelectorAll('.dropdown-tab');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // Update active course items
+        const courseItems = document.querySelectorAll('.dropdown-course-item');
+        courseItems.forEach(item => item.classList.remove('active'));
+        
+        const activeItem = document.querySelector(`.dropdown-course-item[data-tab="${tabName}"]`);
+        if (activeItem) {
+            activeItem.classList.add('active');
+        }
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const container = document.querySelector('.courses-dropdown-container');
+        if (container && !container.contains(event.target)) {
+            document.getElementById('coursesDropdownMenu').classList.remove('active');
+        }
+    });
+    
+    // Form Submission Handler
+    const enquiryForm = document.getElementById('enquiryForm');
+    if (enquiryForm) {
+        enquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validate required fields
+            if (!data.fullName || !data.email || !data.agree) {
+                alert('Please fill in all required fields and agree to our terms.');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Log form data (in production, this would send to a server)
+            console.log('Form submitted:', data);
+            
+            // Show success message
+            const submitBtn = enquiryForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
+            submitBtn.style.backgroundColor = '#4CAF50';
+            submitBtn.disabled = true;
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                enquiryForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.backgroundColor = 'var(--amber-cta)';
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+    }
+</script>

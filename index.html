@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Institute Australia - Healthcare & Aged Care Training | Perth RTO</title>
+    
+    <!-- Google Fonts: Nunito + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A2240;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+        }
+        
+        :root {
+            --primary-blue: #3852B4;
+            --blue-light: #5E7AC4;
+            --blue-tint: #E6EEFF;
+            --amber-cta: #F08D39;
+            --amber-light: #F3BE7A;
+            --amber-tint: #FEF5EB;
+            --near-black: #1A2240;
+            --off-white: #F4F6FB;
+        }
+        
+        .btn-primary {
+            background-color: var(--amber-cta);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary:hover {
+            background-color: #C07020;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(240, 141, 57, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 1.5px solid white;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--near-black);
+        }
+        
+        /* Sticky Header on Scroll */
+        header.scrolled {
+            box-shadow: 0 2px 24px rgba(56, 82, 180, 0.1);
+            border-bottom: 1px solid var(--blue-tint);
+        }
+        
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 9998;
+            background-color: white;
+            transition: all 0.3s ease;
+            overflow: visible;
+        }
+        
+        @media (max-width: 768px) {
+            .sticky-header {
+                height: auto !important;
+                padding: 12px 20px !important;
+            }
+            
+            .sticky-header nav {
+                display: none;
+            }
+            
+            .sticky-header button {
+                min-width: auto !important;
+                padding: 10px 16px !important;
+                font-size: 14px !important;
+            }
+        }
+        
+        .nav-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--amber-cta);
+            transition: width 0.24s ease;
+        }
+        
+        .nav-underline:hover::after {
+            width: 100%;
+        }
+        
+        .nav-underline.active::after {
+            width: 100%;
+        }
+        
+        /* Hero Fully Left-Aligned */
+        .hero-container {
+            height: auto;
+            min-height: 680px;
+            background-color: var(--primary-blue);
+            overflow: visible;
+            padding: 80px 20px 120px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-container > div {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .hero-left {
+            background-color: transparent;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+            min-height: auto;
+            flex: 1;
+            text-align: left;
+        }
+        
+        .hero-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px),
+                radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px);
+            background-size: 80px 80px;
+            background-position: 0 0, 40px 40px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .hero-left::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
+        }
+        
+        .hero-right {
+            position: relative;
+            overflow: visible;
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            min-height: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 0.7;
+            flex-shrink: 0;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+            aspect-ratio: 4 / 3;
+        }
+
+        .hero-right::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background-image: url('assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg');
+            background-size: 160%;
+            background-position: -50px center;
+            border-radius: 50%;
+            top: -120px;
+            right: -150px;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.8;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }}
+        
+        .hero-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            position: relative;
+            z-index: 5;
+            border-top-right-radius: 0px;
+        }
+        
+        .floating-card {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 32px rgba(0,0,0,0.1);
+            animation: float 5s ease-in-out infinite;
+            z-index: 10;
+        }
+        
+        .floating-card-1 {
+            bottom: 40px;
+            left: 20px;
+            width: 280px;
+            animation-delay: 0s;
+        }
+        
+        .floating-card-2 {
+            top: 40px;
+            right: 20px;
+            width: 220px;
+            background-color: var(--amber-cta);
+            color: white;
+            animation-delay: 2.5s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+        }
+        
+        /* Tab Styles */
+        .tab-button {
+            padding: 12px 24px;
+            border: 1px solid var(--blue-tint);
+            background-color: white;
+            color: #666;
+            border-radius: 24px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+        
+        .tab-button.active {
+            background-color: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 12px rgba(56, 82, 180, 0.2);
+        }
+        
+        .tab-button:hover {
+            background-color: var(--blue-tint);
+        }
+        
+        /* Course Cards */
+        .course-card {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 14px;
+            overflow: hidden;
+            border-top: 4px solid var(--primary-blue);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .course-card:hover {
+            border-left: 2px solid var(--amber-cta);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(56, 82, 180, 0.1);
+        }
+        
+        .course-card.amber-accent {
+            border-top-color: var(--amber-cta);
+        }
+        
+        .course-card.grey-accent {
+            border-top-color: #999;
+        }
+        
+        .course-card-header {
+            padding: 16px;
+            border-bottom: 1px solid var(--blue-tint);
+        }
+        
+        .course-code {
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        
+        .course-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--near-black);
+            line-height: 1.4;
+        }
+        
+        .course-card-body {
+            padding: 16px;
+        }
+        
+        .course-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+        
+        .course-meta {
+            font-size: 13px;
+            color: #999;
+            margin-bottom: 14px;
+        }
+        
+        .course-link {
+            color: var(--amber-cta);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .course-link:hover {
+            gap: 12px;
+        }
+        
+        /* Masonry Testimonials */
+        .testimonial-masonry {
+            column-count: 3;
+            column-gap: 24px;
+        }
+        
+        @media (max-width: 1024px) {
+            .testimonial-masonry { column-count: 2; }
+            .hero-container { padding: 60px 40px; flex-direction: column; gap: 40px; }
+            .hero-left { padding: 0; max-width: none; }
+            .hero-right { flex: none; width: 400px; height: 400px; margin: 0 auto; }
+            .floating-card-1 { left: 10px; bottom: 20px; }
+            .floating-card-2 { right: 10px; top: 20px; width: 180px; }
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-masonry { column-count: 1; }
+            .hero-container { padding: 40px 24px; flex-direction: column; gap: 30px; }
+            .hero-left { padding: 0; min-height: auto; max-width: none; }
+            .hero-right { display: none; }
+            .floating-card-1 { display: none; }
+            .floating-card-2 { display: none; }
+            header { padding: 0 20px !important; }
+        }
+        
+        .testimonial-card {
+            break-inside: avoid;
+            margin-bottom: 24px;
+            padding: 28px;
+            border-radius: 12px;
+            background: white;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .testimonial-card.variant-b {
+            background: var(--primary-blue);
+            color: white;
+            border-top: none;
+        }
+        
+        .testimonial-quote {
+            font-size: 48px;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            color: var(--amber-light);
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-stars {
+            color: var(--amber-light);
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--amber-cta));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .testimonial-card.variant-b .testimonial-avatar {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .testimonial-info h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .testimonial-info p {
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        /* Horizontal Scroll Container */
+        .horizontal-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 16px;
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: var(--blue-tint);
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 4px;
+        }
+        
+        .scroll-card {
+            min-width: 300px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border-radius: 16px;
+            overflow: hidden;
+            background: white;
+            border: 1px solid var(--blue-tint);
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 16px 40px rgba(56, 82, 180, 0.15);
+        }
+        
+        .scroll-card-header {
+            background: linear-gradient(135deg, var(--near-black) 0%, #2a3a5c 100%);
+            color: white;
+            padding: 20px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .scroll-card-category {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+        
+        .scroll-card-code {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: var(--amber-light);
+        }
+        
+        @keyframes zoomInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes zoomInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes zoomInFromLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-60px) scale(0.85);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes zoomInFromRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(60px) scale(0.85);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0) scale(1);
+            }
+        }
+        
+        @keyframes slideInFromLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInFromRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+        
+        @keyframes countUp {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .stat-number {
+            animation: countUp 1s ease-out;
+        }
+        
+        @keyframes breathing {
+            0%, 100% {
+                opacity: 0.8;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+        
+        .btn-breathing {
+            animation: breathing 2.5s ease-in-out infinite;
+        }
+
+        @keyframes zoomInSlideUpFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.75) translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .dot {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            z-index: 0.5;
+            opacity: 0.7;
+        }
+        
+        /* Courses Dropdown */
+        .courses-dropdown-container {
+            position: relative;
+        }
+        
+        .courses-dropdown-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--near-black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0;
+        }
+        
+        .courses-dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(56, 82, 180, 0.15);
+            padding: 0;
+            min-width: 900px;
+            margin-top: 8px;
+            display: none;
+            z-index: 9999;
+            grid-template-columns: 250px 1fr;
+            gap: 0;
+        }
+        
+        .courses-dropdown-menu.active {
+            display: grid;
+        }
+        
+        .dropdown-tabs-section {
+            border-right: 1px solid var(--blue-tint);
+            padding: 24px 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .dropdown-tab {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--near-black);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+            text-align: left;
+        }
+        
+        .dropdown-tab:hover {
+            background: var(--blue-tint);
+            color: var(--primary-blue);
+        }
+        
+        .dropdown-tab.active {
+            background: var(--blue-tint);
+            color: var(--primary-blue);
+            border-left-color: var(--amber-cta);
+        }
+        
+        .dropdown-courses-section {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .dropdown-course-item {
+            display: none;
+        }
+        
+        .dropdown-course-item.active {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .dropdown-course-card {
+            background: white;
+            border: 1px solid var(--blue-tint);
+            border-radius: 8px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-course-card:hover {
+            box-shadow: 0 4px 12px rgba(56, 82, 180, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .dropdown-course-code {
+            font-size: 12px;
+            color: var(--amber-cta);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .dropdown-course-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--near-black);
+            margin-bottom: 8px;
+        }
+        
+        .dropdown-course-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .announcement-bar {
+                grid-template-columns: 1fr !important;
+                gap: 8px !important;
+                text-align: center !important;
+                padding: 16px !important;
+                font-size: 11px !important;
+            }
+            
+            .announcement-bar > div {
+                text-align: center !important;
+                border: none !important;
+                padding: 0 !important;
+            }
+            
+            .courses-dropdown-menu {
+                min-width: auto;
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Scroll-Triggered Animations */
+        @keyframes scrollSlideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes scrollSlideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .scroll-animate {
+            opacity: 0;
+        }
+        
+        .scroll-animate.visible {
+            animation: fadeInUp 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        .scroll-animate-left.visible {
+            animation: scrollSlideInLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        
+        .scroll-animate-right.visible {
+            animation: scrollSlideInRight 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Testimonial Carousel - Infinite Loop */
+        .testimonial-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            width: 100%;
+            flex: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            gap: 24px;
+        }
+
+        .carousel-card {
+            flex: 0 0 calc((100% - 48px) / 3);
+        }
+
+        /* Responsive: Tablet (2 cards visible) */
+        @media (max-width: 1024px) {
+            .carousel-card {
+                flex: 0 0 calc((100% - 24px) / 2);
+            }
+        }
+
+        /* Responsive: Mobile (1 card visible) */
+        @media (max-width: 768px) {
+            .carousel-card {
+                flex: 0 0 100%;
+            }
+            
+            .testimonial-carousel-wrapper {
+                gap: 16px;
+            }
+        }
+
+        .carousel-nav-btn {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--primary-blue);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        .carousel-nav-btn:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .carousel-nav-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Responsive: Hide buttons on mobile */
+        @media (max-width: 640px) {
+            .carousel-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 1. ANNOUNCEMENT BAR -->
+<div style="background-color: white; color: var(--near-black); padding: 12px 20px; font-size: 12px;">
+    <div class="announcement-bar" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; text-align: center; gap: 16px;">
+        <div style="text-align: left;">
+            <i class="fas fa-star" style="color: var(--amber-cta); margin-right: 6px;"></i>
+            <span style="color: var(--primary-blue);">4.9 Student Rating</span>
+        </div>
+        <div style="color: var(--near-black);">
+            RTO No. 46473 | Nationally Recognised Training | Perth WA
+        </div>
+        <div style="text-align: right;">
+            <i class="fas fa-phone" style="color: var(--amber-cta); margin-right: 6px;"></i>
+            <span style="color: var(--primary-blue);">(08) 6289 6155</span>
+        </div>
+    </div>
+</div>
+
+<!-- 2. STICKY NAVIGATION HEADER -->
+<header class="sticky-header" id="mainHeader" style="height: 110px; display: flex; align-items: center; padding: 0 20px; background-color: var(--near-black);">
+    <div style="max-width: 1200px; width: 100%; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        
+        <!-- Logo -->
+        <div style="min-width: 180px;">
+            <img src="assets/images/mark-logo.png" alt="MIA Logo" style="width: 190px; height: 190px; object-fit: contain;">
+        </div>
+        
+        <!-- Nav Links -->
+        <nav style="display: flex; gap: 32px; flex: 1; margin-left: 40px;">
+            <a href="#home" class="nav-underline active" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Home</a>
+            <a href="#about" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">About</a>
+            <div class="courses-dropdown-container">
+                <button class="courses-dropdown-btn nav-underline" id="coursesDropdownBtn" onclick="toggleCoursesDropdown(event)" style="color: white;">
+                    Courses <i class="fas fa-chevron-down" style="font-size: 10px; margin-left: 4px;"></i>
+                </button>
+                <div class="courses-dropdown-menu" id="coursesDropdownMenu">
+                    <!-- Left Side: Tabs -->
+                    <div class="dropdown-tabs-section">
+                        <button class="dropdown-tab active" onclick="switchDropdownTab('accredited', event)" type="button">Accredited Short</button>
+                        <button class="dropdown-tab" onclick="switchDropdownTab('non-accredited', event)" type="button">Non-Accredited</button>
+                        <button class="dropdown-tab" onclick="switchDropdownTab('all', event)" type="button">All Courses</button>
+                    </div>
+                    
+                    <!-- Right Side: Courses Display -->
+                    <div class="dropdown-courses-section">
+                        <!-- Accredited Courses -->
+                        <div class="dropdown-course-item active" data-tab="accredited">
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC33821</div>
+                                <div class="dropdown-course-title">Certificate III in Individual Support</div>
+                                <div class="dropdown-course-desc">Nationally recognised qualification for disability and aged care support workers.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC43815</div>
+                                <div class="dropdown-course-title">Certificate IV in Ageing Support</div>
+                                <div class="dropdown-course-desc">Advanced training for aged care professionals seeking leadership roles.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Non-Accredited Courses -->
+                        <div class="dropdown-course-item" data-tab="non-accredited">
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">WS001</div>
+                                <div class="dropdown-course-title">First Aid & CPR Workshop</div>
+                                <div class="dropdown-course-desc">Professional first aid and CPR certification course for healthcare professionals.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">WS002</div>
+                                <div class="dropdown-course-title">Mindfulness in Care</div>
+                                <div class="dropdown-course-desc">Professional development workshop on mindfulness practices in aged care.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">WS003</div>
+                                <div class="dropdown-course-title">Communication Skills</div>
+                                <div class="dropdown-course-desc">Enhance communication skills for better client and team interactions.</div>
+                            </div>
+                        </div>
+                        
+                        <!-- All Courses -->
+                        <div class="dropdown-course-item" data-tab="all">
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC33821</div>
+                                <div class="dropdown-course-title">Certificate III in Individual Support</div>
+                                <div class="dropdown-course-desc">Nationally recognised qualification for disability and aged care support workers.</div>
+                            </div>
+                            <div class="dropdown-course-card">
+                                <div class="dropdown-course-code">CHC43815</div>
+                                <div class="dropdown-course-title">Certificate IV in Ageing Support</div>
+                                <div class="dropdown-course-desc">Advanced training for aged care professionals seeking leadership roles.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="#blog" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Testimonials</a>
+            <a href="#faq" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Pricing</a>
+            <a href="#contact" class="nav-underline" style="color: white; text-decoration: none; font-size: 14px; font-weight: 500;">Contact</a>
+        </nav>
+        
+        <!-- Enrol CTA -->
+        <button class="btn-primary" style="margin-left: auto; min-width: 160px;">Enrol Now <i class="fas fa-arrow-right" style="font-size: 12px;"></i></button>
+    </div>
+</header>
+
+<!-- 3. HERO SECTION - FULLY CENTERED BLUE BACKGROUND -->
+<section class="hero-container" id="home">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 40px;">
+        <!-- CENTERED CONTENT -->
+        <div class="hero-left" style="position: relative; z-index: 2;">
+            <div style="position: relative; z-index: 3;">
+            <!-- Label -->
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; animation: slideInFromLeft 1.2s ease-out 0.3s both;">
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+                <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--amber-light); text-transform: uppercase;">Perth's Leading Healthcare RTO</span>
+            </div>
+            
+            <!-- H1 -->
+            <h1 style="font-size: clamp(48px, 8vw, 72px); color: white; font-weight: 800; line-height: 1.1; margin-bottom: 8px; animation: zoomInFromLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; white-space: nowrap;">
+                Engaging Hearts,
+            </h1>
+            <h1 style="font-size: clamp(48px, 8vw, 72px); color: white; font-weight: 800; line-height: 1.1; margin-bottom: 32px; animation: zoomInFromLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.7s both;">
+                <span style="color: var(--amber-light);">Equipping<br>Minds.</span>
+            </h1>
+            
+            <!-- Subtext -->
+            <p style="font-size: 17px; color: rgba(255,255,255,0.78); max-width: 700px; line-height: 1.8; margin-bottom: 32px; animation: zoomInFromLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1s both;">
+                NDIS compliant, nationally accredited training in aged care, disability, first aid and more - right here in Perth.
+            </p>
+            
+            <!-- Buttons -->
+            <div style="display: flex; gap: 14px; margin-bottom: 40px; animation: zoomInFromLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) 1.3s both; flex-wrap: wrap;">
+                <button class="btn-primary" style="padding: 14px 36px; height: 46px; font-size: 16px;">Explore Courses <i class="fas fa-arrow-right"></i></button>
+                <button class="btn-outline" style="height: 46px; padding: 14px 36px; font-size: 16px;">How It Works</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- RIGHT PANEL - RECTANGULAR IMAGE -->
+    <div class="hero-right" style="animation: zoomInFromRight 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both; position: relative;">
+        <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Healthcare Professionals" style="width: 100%; height: 100%; object-fit: cover;">
+        <!-- Floating RTO Button -->
+        <button class="btn-primary btn-breathing" style="position: absolute; bottom: -22px; left: -22px; padding: 12px 24px; height: 44px; font-size: 14px; z-index: 20; display: flex; align-items: center; gap: 8px; box-shadow: 0 8px 24px rgba(240, 141, 57, 0.3); animation: fadeIn 1.5s ease-out 1.8s both;">
+            <i class="fas fa-certificate" style="font-size: 14px;"></i>
+            RTO No. 46473
+        </button>
+    </div>
+    </div>
+</section>
+
+<!-- 5.5 COURSE CATEGORIES SHOWCASE - MINDBLOWING SECTION -->
+<section style="background: linear-gradient(135deg, var(--off-white) 0%, #f8f9fb 100%); padding: 80px 20px; position: relative; overflow: hidden;" id="course-showcase">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -100px; width: 300px; height: 300px; background: rgba(56, 82, 180, 0.08); border-radius: 50%; z-index: 0;"></div>
+    <div style="position: absolute; bottom: -100px; left: -50px; width: 400px; height: 400px; background: rgba(56, 82, 180, 0.04); border-radius: 50%; z-index: 0;"></div>
+    
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+        <!-- Section Header -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 24px; animation: zoomInFromLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;">
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+                <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--amber-light); text-transform: uppercase;">Our Specialties</span>
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+            </div>
+            <h2 style="font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: var(--near-black); margin-bottom: 16px; line-height: 1.2; animation: zoomInFromLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;">Explore Our Course Categories</h2>
+            <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto; animation: zoomInFromLeft 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;">Discover the perfect learning path tailored to your professional goals and healthcare journey</p>
+        </div>
+
+        <!-- Course Categories Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 60px;">
+            <!-- Card 1: Community Courses -->
+            <div style="background: white; padding: 40px 20px; border-radius: 12px; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); transform: translateY(0); box-shadow: 0 4px 20px rgba(56, 82, 180, 0.08); border: 2px solid transparent; border-top: 4px solid var(--primary-blue); animation: zoomInScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.8s both; text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 16px 48px rgba(56, 82, 180, 0.15)'; this.style.borderTopColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(56, 82, 180, 0.08)'; this.style.borderTopColor='var(--primary-blue)';">
+                <div style="background: var(--primary-blue); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(56, 82, 180, 0.25);">
+                    <i class="fas fa-users" style="font-size: 36px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 18px; font-weight: 700; color: var(--near-black); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Community Courses</h3>
+            </div>
+
+            <!-- Card 2: Accredited Courses -->
+            <div style="background: white; padding: 40px 20px; border-radius: 12px; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); transform: translateY(0); box-shadow: 0 4px 20px rgba(56, 82, 180, 0.08); border: 2px solid transparent; border-top: 4px solid var(--primary-blue); animation: zoomInScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1s both; text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 16px 48px rgba(56, 82, 180, 0.15)'; this.style.borderTopColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(56, 82, 180, 0.08)'; this.style.borderTopColor='var(--primary-blue)';">
+                <div style="background: var(--primary-blue); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(56, 82, 180, 0.25);">
+                    <i class="fas fa-award" style="font-size: 36px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 18px; font-weight: 700; color: var(--near-black); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Accredited Courses</h3>
+            </div>
+
+            <!-- Card 3: Non Accredited Courses -->
+            <div style="background: white; padding: 40px 20px; border-radius: 12px; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); transform: translateY(0); box-shadow: 0 4px 20px rgba(56, 82, 180, 0.08); border: 2px solid transparent; border-top: 4px solid var(--primary-blue); animation: zoomInScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.2s both; text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 16px 48px rgba(56, 82, 180, 0.15)'; this.style.borderTopColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(56, 82, 180, 0.08)'; this.style.borderTopColor='var(--primary-blue)';">
+                <div style="background: var(--primary-blue); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(56, 82, 180, 0.25);">
+                    <i class="fas fa-book" style="font-size: 36px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 18px; font-weight: 700; color: var(--near-black); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Non Accredited Courses</h3>
+            </div>
+
+            <!-- Card 4: Health Support -->
+            <div style="background: white; padding: 40px 20px; border-radius: 12px; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); transform: translateY(0); box-shadow: 0 4px 20px rgba(56, 82, 180, 0.08); border: 2px solid transparent; border-top: 4px solid var(--primary-blue); animation: zoomInScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.4s both; text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 16px 48px rgba(56, 82, 180, 0.15)'; this.style.borderTopColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(56, 82, 180, 0.08)'; this.style.borderTopColor='var(--primary-blue)';">
+                <div style="background: var(--primary-blue); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(56, 82, 180, 0.25);">
+                    <i class="fas fa-heart" style="font-size: 36px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 18px; font-weight: 700; color: var(--near-black); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">Health Support</h3>
+            </div>
+
+            <!-- Card 5: NDIS Skills -->
+            <div style="background: white; padding: 40px 20px; border-radius: 12px; cursor: pointer; transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1); transform: translateY(0); box-shadow: 0 4px 20px rgba(56, 82, 180, 0.08); border: 2px solid transparent; border-top: 4px solid var(--primary-blue); animation: zoomInScale 1.2s cubic-bezier(0.22, 1, 0.36, 1) 1.6s both; text-align: center; min-height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center;" onmouseover="this.style.transform='translateY(-12px)'; this.style.boxShadow='0 16px 48px rgba(56, 82, 180, 0.15)'; this.style.borderTopColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 20px rgba(56, 82, 180, 0.08)'; this.style.borderTopColor='var(--primary-blue)';">
+                <div style="background: var(--primary-blue); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 4px 16px rgba(56, 82, 180, 0.25);">
+                    <i class="fas fa-handshake" style="font-size: 36px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 18px; font-weight: 700; color: var(--near-black); line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 100%;">NDIS Skills</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. ABOUT MARK INSTITUTE AUSTRALIA SECTION -->
+<section style="background: linear-gradient(135deg, #1A2D5E 0%, #0F1E3D 100%); padding: 80px 20px; position: relative; overflow: hidden;" id="about">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -100px; width: 300px; height: 300px; background: rgba(56, 82, 180, 0.15); border-radius: 50%; z-index: 0;"></div>
+    <div style="position: absolute; bottom: -100px; left: -50px; width: 400px; height: 400px; background: rgba(56, 82, 180, 0.12); border-radius: 50%; z-index: 0;"></div>
+    
+    <!-- Random Floating White Dots Background -->
+    <div class="dot" style="top: 8%; left: 3%;"></div>
+    <div class="dot" style="top: 15%; left: 12%;"></div>
+    <div class="dot" style="top: 3%; left: 22%;"></div>
+    <div class="dot" style="top: 22%; left: 7%;"></div>
+    <div class="dot" style="top: 11%; left: 35%;"></div>
+    <div class="dot" style="top: 18%; left: 28%;"></div>
+    <div class="dot" style="top: 6%; left: 45%;"></div>
+    <div class="dot" style="top: 25%; left: 38%;"></div>
+    <div class="dot" style="top: 13%; left: 52%;"></div>
+    <div class="dot" style="top: 20%; left: 58%;"></div>
+    <div class="dot" style="top: 4%; left: 68%;"></div>
+    <div class="dot" style="top: 27%; left: 62%;"></div>
+    <div class="dot" style="top: 14%; left: 75%;"></div>
+    <div class="dot" style="top: 9%; left: 85%;"></div>
+    <div class="dot" style="top: 19%; left: 92%;"></div>
+    <div class="dot" style="top: 12%; left: 98%;"></div>
+    <div class="dot" style="top: 35%; left: 5%;"></div>
+    <div class="dot" style="top: 42%; left: 15%;"></div>
+    <div class="dot" style="top: 38%; left: 25%;"></div>
+    <div class="dot" style="top: 45%; left: 11%;"></div>
+    <div class="dot" style="top: 30%; left: 32%;"></div>
+    <div class="dot" style="top: 48%; left: 19%;"></div>
+    <div class="dot" style="top: 33%; left: 50%;"></div>
+    <div class="dot" style="top: 40%; left: 40%;"></div>
+    <div class="dot" style="top: 28%; left: 72%;"></div>
+    <div class="dot" style="top: 46%; left: 58%;"></div>
+    <div class="dot" style="top: 36%; left: 82%;"></div>
+    <div class="dot" style="top: 43%; left: 68%;"></div>
+    <div class="dot" style="top: 32%; left: 88%;"></div>
+    <div class="dot" style="top: 44%; left: 78%;"></div>
+    <div class="dot" style="top: 55%; left: 8%;"></div>
+    <div class="dot" style="top: 62%; left: 18%;"></div>
+    <div class="dot" style="top: 58%; left: 28%;"></div>
+    <div class="dot" style="top: 65%; left: 14%;"></div>
+    <div class="dot" style="top: 50%; left: 35%;"></div>
+    <div class="dot" style="top: 68%; left: 22%;"></div>
+    <div class="dot" style="top: 53%; left: 45%;"></div>
+    <div class="dot" style="top: 60%; left: 38%;"></div>
+    <div class="dot" style="top: 52%; left: 62%;"></div>
+    <div class="dot" style="top: 66%; left: 55%;"></div>
+    <div class="dot" style="top: 56%; left: 75%;"></div>
+    <div class="dot" style="top: 64%; left: 70%;"></div>
+    <div class="dot" style="top: 59%; left: 85%;"></div>
+    <div class="dot" style="top: 69%; left: 91%;"></div>
+    <div class="dot" style="top: 54%; left: 78%;"></div>
+    <div class="dot" style="top: 61%; left: 92%;"></div>
+    <div class="dot" style="top: 75%; left: 4%;"></div>
+    <div class="dot" style="top: 82%; left: 16%;"></div>
+    <div class="dot" style="top: 78%; left: 26%;"></div>
+    <div class="dot" style="top: 85%; left: 10%;"></div>
+    <div class="dot" style="top: 70%; left: 38%;"></div>
+    <div class="dot" style="top: 88%; left: 20%;"></div>
+    <div class="dot" style="top: 73%; left: 48%;"></div>
+    <div class="dot" style="top: 80%; left: 42%;"></div>
+    <div class="dot" style="top: 72%; left: 65%;"></div>
+    <div class="dot" style="top: 86%; left: 58%;"></div>
+    <div class="dot" style="top: 76%; left: 80%;"></div>
+    <div class="dot" style="top: 84%; left: 72%;"></div>
+    <div class="dot" style="top: 79%; left: 88%;"></div>
+    <div class="dot" style="top: 89%; left: 94%;"></div>
+    <div class="dot" style="top: 74%; left: 68%;"></div>
+    <div class="dot" style="top: 81%; left: 95%;"></div>
+    <div class="dot" style="top: 95%; left: 6%;"></div>
+    <div class="dot" style="top: 92%; left: 19%;"></div>
+    <div class="dot" style="top: 98%; left: 30%;"></div>
+    <div class="dot" style="top: 93%; left: 12%;"></div>
+    <div class="dot" style="top: 90%; left: 42%;"></div>
+    <div class="dot" style="top: 96%; left: 24%;"></div>
+    <div class="dot" style="top: 94%; left: 52%;"></div>
+    <div class="dot" style="top: 97%; left: 45%;"></div>
+    <div class="dot" style="top: 91%; left: 68%;"></div>
+    <div class="dot" style="top: 99%; left: 60%;"></div>
+    <div class="dot" style="top: 87%; left: 82%;"></div>
+    <div class="dot" style="top: 93%; left: 75%;"></div>
+    <div class="dot" style="top: 89%; left: 90%;"></div>
+    <div class="dot" style="top: 97%; left: 85%;"></div>
+    <div class="dot" style="top: 86%; left: 74%;"></div>
+    <div class="dot" style="top: 94%; left: 88%;"></div>
+    <div class="dot" style="top: 7%; left: 56%;"></div>
+    <div class="dot" style="top: 19%; left: 42%;"></div>
+    <div class="dot" style="top: 31%; left: 78%;"></div>
+    <div class="dot" style="top: 24%; left: 65%;"></div>
+    <div class="dot" style="top: 10%; left: 88%;"></div>
+    <div class="dot" style="top: 29%; left: 18%;"></div>
+    <div class="dot" style="top: 37%; left: 62%;"></div>
+    <div class="dot" style="top: 41%; left: 32%;"></div>
+    <div class="dot" style="top: 16%; left: 72%;"></div>
+    <div class="dot" style="top: 26%; left: 48%;"></div>
+    <div class="dot" style="top: 51%; left: 12%;"></div>
+    <div class="dot" style="top: 63%; left: 92%;"></div>
+    <div class="dot" style="top: 17%; left: 38%;"></div>
+    <div class="dot" style="top: 39%; left: 88%;"></div>
+    <div class="dot" style="top: 47%; left: 76%;"></div>
+    <div class="dot" style="top: 57%; left: 28%;"></div>
+    <div class="dot" style="top: 67%; left: 18%;"></div>
+    <div class="dot" style="top: 77%; left: 52%;"></div>
+    <div class="dot" style="top: 83%; left: 35%;"></div>
+    <div class="dot" style="top: 71%; left: 42%;"></div>
+    <div class="dot" style="top: 21%; left: 82%;"></div>
+    <div class="dot" style="top: 5%; left: 15%;"></div>
+    <div class="dot" style="top: 34%; left: 66%;"></div>
+    <div class="dot" style="top: 12%; left: 48%;"></div>
+    <div class="dot" style="top: 49%; left: 85%;"></div>
+    <div class="dot" style="top: 25%; left: 52%;"></div>
+    <div class="dot" style="top: 38%; left: 8%;"></div>
+    <div class="dot" style="top: 61%; left: 35%;"></div>
+    <div class="dot" style="top: 2%; left: 42%;"></div>
+    <div class="dot" style="top: 44%; left: 65%;"></div>
+    <div class="dot" style="top: 27%; left: 95%;"></div>
+    <div class="dot" style="top: 72%; left: 15%;"></div>
+    <div class="dot" style="top: 9%; left: 78%;"></div>
+    <div class="dot" style="top: 58%; left: 12%;"></div>
+    <div class="dot" style="top: 16%; left: 68%;"></div>
+    <div class="dot" style="top: 35%; left: 45%;"></div>
+    <div class="dot" style="top: 28%; left: 88%;"></div>
+    <div class="dot" style="top: 42%; left: 58%;"></div>
+    <div class="dot" style="top: 11%; left: 25%;"></div>
+    <div class="dot" style="top: 65%; left: 38%;"></div>
+    <div class="dot" style="top: 20%; left: 75%;"></div>
+    <div class="dot" style="top: 75%; left: 62%;"></div>
+    <div class="dot" style="top: 30%; left: 18%;"></div>
+    <div class="dot" style="top: 52%; left: 88%;"></div>
+    <div class="dot" style="top: 87%; left: 30%;"></div>
+    <div class="dot" style="top: 14%; left: 82%;"></div>
+    <div class="dot" style="top: 64%; left: 15%;"></div>
+    <div class="dot" style="top: 18%; left: 55%;"></div>
+    <div class="dot" style="top: 39%; left: 75%;"></div>
+    <div class="dot" style="top: 22%; left: 35%;"></div>
+    <div class="dot" style="top: 56%; left: 48%;"></div>
+    <div class="dot" style="top: 32%; left: 92%;"></div>
+    <div class="dot" style="top: 70%; left: 22%;"></div>
+    <div class="dot" style="top: 6%; left: 60%;"></div>
+    <div class="dot" style="top: 48%; left: 32%;"></div>
+    <div class="dot" style="top: 24%; left: 72%;"></div>
+    <div class="dot" style="top: 80%; left: 18%;"></div>
+    <div class="dot" style="top: 36%; left: 58%;"></div>
+    <div class="dot" style="top: 13%; left: 42%;"></div>
+    <div class="dot" style="top: 68%; left: 85%;"></div>
+    
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+        <!-- Content Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: stretch;">
+            <!-- Left: Image -->
+            <div class="scroll-animate scroll-animate-left" style="display: flex; align-items: center; background: white; padding: 8px; border-radius: 16px; box-shadow: 0 12px 40px rgba(56, 82, 180, 0.12);">
+                <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Healthcare Professional" style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px;">
+            </div>
+
+            <!-- Right: Content -->
+            <div class="scroll-animate scroll-animate-right" style="">
+                <!-- Section Label -->
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px;">
+                    <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+                    <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--amber-light); text-transform: uppercase;">About Mark Institute</span>
+                </div>
+                
+                <!-- Heading -->
+                <h2 style="font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: white; margin-bottom: 24px; line-height: 1.2;">Empowering the Future of Healthcare Excellence</h2>
+                
+                <!-- Description -->
+                <p style="font-size: 15px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 20px;">Mark Institute Australia is a premier, Perth based training provider established to address the vital need for advanced clinical skills in the NDIS, aged care, and disability sectors. We were founded on the principle that the highest standard of care is only achievable through specialized, practical education.</p>
+                
+                <p style="font-size: 15px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 20px;">By bridging the gap between basic support and high intensity clinical mastery, we have set a new benchmark for workforce development and professional excellence in Western Australia.</p>
+                
+                <p style="font-size: 15px; color: rgba(255, 255, 255, 0.85); line-height: 1.8; margin-bottom: 32px;">To empower the next generation of healthcare professionals, Mark Institute Australia provides a comprehensive curriculum of over 26 nationally compliant courses. We specialize in complex support training including Peg Feeding, Catheter Care, and Seizure Management ensuring that our students gain the practical skills, confidence, and accredited qualifications required to thrive in Australia's evolving healthcare landscape.</p>
+                
+                <!-- CTA Button -->
+                <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 36px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 6px 20px rgba(240, 141, 57, 0.25); display: inline-flex; align-items: center; gap: 8px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 30px rgba(240, 141, 57, 0.35)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 6px 20px rgba(240, 141, 57, 0.25)';">
+                    Learn Our Story <i class="fas fa-arrow-right" style="font-size: 13px;"></i>
+                </button>
+                
+                <!-- RTO Badge -->
+                <p style="font-size: 12px; color: rgba(255, 255, 255, 0.7); margin-top: 24px; letter-spacing: 0.5px;">RTO 46473 | Registered Training Organisation</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. WHY TRAIN WITH MARK INSTITUTE SECTION -->
+<section style="background: linear-gradient(180deg, #FFFFFF 0%, #F9FBFC 100%); padding: 100px 20px; position: relative;" id="why-train">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <!-- Section Header -->
+        <div style="text-align: center; margin-bottom: 80px; animation: fadeInUp 0.6s ease-out 0.1s both;">
+            <!-- Section Label -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px;">
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+                <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--amber-cta); text-transform: uppercase;">Why Choose Us</span>
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+            </div>
+            
+            <!-- Main Heading -->
+            <h2 style="font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: var(--near-black); margin-bottom: 24px; line-height: 1.2;">
+                Why Train with <span style="color: black;">Mark Institute Australia?</span>
+            </h2>
+            
+            <!-- Subtitle -->
+            <p style="font-size: 16px; color: var(--near-black); max-width: 900px; margin: 0 auto; line-height: 1.8; opacity: 0.85; font-weight: 500;">Empowering Perth's healthcare workers with the skills and confidence to provide exceptional, life changing care across the health sector.</p>
+        </div>
+        
+        <!-- Features Grid - Clean Minimal Style -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; animation: fadeInUp 0.6s ease-out 0.2s both;">
+            
+            <!-- Feature 1: Flexible Learning -->
+            <div class="scroll-animate" style="background: white; padding: 48px 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); position: relative;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #3852B4 100%); width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <i class="fas fa-clock" style="font-size: 32px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 22px; font-weight: 700; color: var(--near-black); margin-bottom: 14px; line-height: 1.3;">Flexible Learning</h3>
+                <p style="font-size: 15px; color: var(--near-black); line-height: 1.7; opacity: 0.75;">Access convenient training schedules designed to fit the busy lifestyles of healthcare workers and support professionals in Perth.</p>
+            </div>
+            
+            <!-- Feature 2: Expert Trainers -->
+            <div class="scroll-animate" style="background: white; padding: 48px 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); position: relative;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #3852B4 100%); width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <i class="fas fa-user-tie" style="font-size: 32px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 22px; font-weight: 700; color: var(--near-black); margin-bottom: 14px; line-height: 1.3;">Expert Trainers</h3>
+                <p style="font-size: 15px; color: var(--near-black); line-height: 1.7; opacity: 0.75;">Learn directly from industry veterans who bring real world clinical experience and professional insights into every training session.</p>
+            </div>
+            
+            <!-- Feature 3: Competitive Fees -->
+            <div class="scroll-animate" style="background: white; padding: 48px 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); position: relative;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #3852B4 100%); width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <i class="fas fa-tag" style="font-size: 32px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 22px; font-weight: 700; color: var(--near-black); margin-bottom: 14px; line-height: 1.3;">Competitive Fees</h3>
+                <p style="font-size: 15px; color: var(--near-black); line-height: 1.7; opacity: 0.75;">Experience premium healthcare education at affordable prices, ensuring high value training for individuals and corporate teams across WA.</p>
+            </div>
+            
+            <!-- Feature 4: Nationally Accredited -->
+            <div style="background: white; padding: 48px 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); position: relative; animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #3852B4 100%); width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <i class="fas fa-certificate" style="font-size: 32px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 22px; font-weight: 700; color: var(--near-black); margin-bottom: 14px; line-height: 1.3;">Nationally Accredited</h3>
+                <p style="font-size: 15px; color: var(--near-black); line-height: 1.7; opacity: 0.75;">Gain industry recognized certifications in First Aid and Disability Support that meet all Australian healthcare compliance standards.</p>
+            </div>
+            
+            <!-- Feature 5: Specialist Care -->
+            <div style="background: white; padding: 48px 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); position: relative; animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #3852B4 100%); width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <i class="fas fa-heart" style="font-size: 32px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 22px; font-weight: 700; color: var(--near-black); margin-bottom: 14px; line-height: 1.3;">Specialist Care</h3>
+                <p style="font-size: 15px; color: var(--near-black); line-height: 1.7; opacity: 0.75;">Master high intensity skills like Peg Feeding and Catheter Care through our advanced, hands on clinical training modules.</p>
+            </div>
+            
+            <!-- Feature 6: Group Discounts -->
+            <div style="background: white; padding: 48px 40px; border-radius: 12px; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); position: relative; animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #3852B4 100%); width: 65px; height: 65px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <i class="fas fa-people-group" style="font-size: 32px; color: var(--amber-cta);"></i>
+                </div>
+                <h3 style="font-size: 22px; font-weight: 700; color: var(--near-black); margin-bottom: 14px; line-height: 1.3;">Group Discounts</h3>
+                <p style="font-size: 15px; color: var(--near-black); line-height: 1.7; opacity: 0.75;">Save significantly with our competitive group rates for teams of eight or more, perfect for NDIS providers.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. EXPLORE OUR COURSES SECTION -->
+<!-- 8. COURSE CATEGORIES - TABBED SECTION -->
+<section style="background: linear-gradient(135deg, #1A2D5E 0%, #0F1E3D 100%); padding: 80px 20px; position: relative; overflow: hidden;" id="courses">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -100px; width: 300px; height: 300px; background: rgba(56, 82, 180, 0.15); border-radius: 50%; z-index: 0;"></div>
+    <div style="position: absolute; bottom: -100px; left: -50px; width: 400px; height: 400px; background: rgba(56, 82, 180, 0.12); border-radius: 50%; z-index: 0;"></div>
+    
+    <!-- Random Floating White Dots Background -->
+    <div class="dot" style="top: 8%; left: 3%;"></div>
+    <div class="dot" style="top: 15%; left: 12%;"></div>
+    <div class="dot" style="top: 3%; left: 22%;"></div>
+    <div class="dot" style="top: 22%; left: 7%;"></div>
+    <div class="dot" style="top: 11%; left: 35%;"></div>
+    <div class="dot" style="top: 18%; left: 28%;"></div>
+    <div class="dot" style="top: 6%; left: 45%;"></div>
+    <div class="dot" style="top: 25%; left: 38%;"></div>
+    <div class="dot" style="top: 13%; left: 52%;"></div>
+    <div class="dot" style="top: 20%; left: 58%;"></div>
+    <div class="dot" style="top: 4%; left: 68%;"></div>
+    <div class="dot" style="top: 27%; left: 62%;"></div>
+    <div class="dot" style="top: 14%; left: 75%;"></div>
+    <div class="dot" style="top: 9%; left: 85%;"></div>
+    <div class="dot" style="top: 19%; left: 92%;"></div>
+    <div class="dot" style="top: 12%; left: 98%;"></div>
+    <div class="dot" style="top: 35%; left: 5%;"></div>
+    <div class="dot" style="top: 42%; left: 15%;"></div>
+    <div class="dot" style="top: 38%; left: 25%;"></div>
+    <div class="dot" style="top: 45%; left: 11%;"></div>
+    <div class="dot" style="top: 30%; left: 32%;"></div>
+    <div class="dot" style="top: 48%; left: 19%;"></div>
+    <div class="dot" style="top: 33%; left: 50%;"></div>
+    <div class="dot" style="top: 40%; left: 40%;"></div>
+    <div class="dot" style="top: 28%; left: 72%;"></div>
+    <div class="dot" style="top: 46%; left: 58%;"></div>
+    <div class="dot" style="top: 36%; left: 82%;"></div>
+    <div class="dot" style="top: 43%; left: 68%;"></div>
+    <div class="dot" style="top: 32%; left: 88%;"></div>
+    <div class="dot" style="top: 44%; left: 78%;"></div>
+    <div class="dot" style="top: 55%; left: 8%;"></div>
+    <div class="dot" style="top: 62%; left: 18%;"></div>
+    <div class="dot" style="top: 58%; left: 28%;"></div>
+    <div class="dot" style="top: 65%; left: 14%;"></div>
+    <div class="dot" style="top: 50%; left: 35%;"></div>
+    <div class="dot" style="top: 68%; left: 22%;"></div>
+    <div class="dot" style="top: 53%; left: 45%;"></div>
+    <div class="dot" style="top: 60%; left: 38%;"></div>
+    <div class="dot" style="top: 52%; left: 62%;"></div>
+    <div class="dot" style="top: 66%; left: 55%;"></div>
+    <div class="dot" style="top: 56%; left: 75%;"></div>
+    <div class="dot" style="top: 64%; left: 70%;"></div>
+    <div class="dot" style="top: 59%; left: 85%;"></div>
+    <div class="dot" style="top: 69%; left: 91%;"></div>
+    <div class="dot" style="top: 54%; left: 78%;"></div>
+    <div class="dot" style="top: 61%; left: 92%;"></div>
+    <div class="dot" style="top: 75%; left: 4%;"></div>
+    <div class="dot" style="top: 82%; left: 16%;"></div>
+    <div class="dot" style="top: 78%; left: 26%;"></div>
+    <div class="dot" style="top: 85%; left: 10%;"></div>
+    <div class="dot" style="top: 70%; left: 38%;"></div>
+    <div class="dot" style="top: 88%; left: 20%;"></div>
+    <div class="dot" style="top: 73%; left: 48%;"></div>
+    <div class="dot" style="top: 80%; left: 42%;"></div>
+    <div class="dot" style="top: 72%; left: 65%;"></div>
+    <div class="dot" style="top: 86%; left: 58%;"></div>
+    <div class="dot" style="top: 76%; left: 80%;"></div>
+    <div class="dot" style="top: 84%; left: 72%;"></div>
+    <div class="dot" style="top: 79%; left: 88%;"></div>
+    <div class="dot" style="top: 89%; left: 94%;"></div>
+    <div class="dot" style="top: 74%; left: 68%;"></div>
+    <div class="dot" style="top: 81%; left: 95%;"></div>
+    <div class="dot" style="top: 95%; left: 6%;"></div>
+    <div class="dot" style="top: 92%; left: 19%;"></div>
+    <div class="dot" style="top: 98%; left: 30%;"></div>
+    <div class="dot" style="top: 93%; left: 12%;"></div>
+    <div class="dot" style="top: 90%; left: 42%;"></div>
+    <div class="dot" style="top: 96%; left: 24%;"></div>
+    <div class="dot" style="top: 94%; left: 52%;"></div>
+    <div class="dot" style="top: 97%; left: 45%;"></div>
+    <div class="dot" style="top: 91%; left: 68%;"></div>
+    <div class="dot" style="top: 99%; left: 60%;"></div>
+    <div class="dot" style="top: 87%; left: 82%;"></div>
+    <div class="dot" style="top: 93%; left: 75%;"></div>
+    <div class="dot" style="top: 89%; left: 90%;"></div>
+    <div class="dot" style="top: 97%; left: 85%;"></div>
+    <div class="dot" style="top: 86%; left: 74%;"></div>
+    <div class="dot" style="top: 94%; left: 88%;"></div>
+    <div class="dot" style="top: 7%; left: 56%;"></div>
+    <div class="dot" style="top: 19%; left: 42%;"></div>
+    <div class="dot" style="top: 31%; left: 78%;"></div>
+    <div class="dot" style="top: 24%; left: 65%;"></div>
+    <div class="dot" style="top: 10%; left: 88%;"></div>
+    <div class="dot" style="top: 29%; left: 18%;"></div>
+    <div class="dot" style="top: 37%; left: 62%;"></div>
+    <div class="dot" style="top: 41%; left: 32%;"></div>
+    <div class="dot" style="top: 16%; left: 72%;"></div>
+    <div class="dot" style="top: 26%; left: 48%;"></div>
+    <div class="dot" style="top: 51%; left: 12%;"></div>
+    <div class="dot" style="top: 63%; left: 92%;"></div>
+    <div class="dot" style="top: 17%; left: 38%;"></div>
+    <div class="dot" style="top: 39%; left: 88%;"></div>
+    <div class="dot" style="top: 47%; left: 76%;"></div>
+    <div class="dot" style="top: 57%; left: 28%;"></div>
+    <div class="dot" style="top: 67%; left: 18%;"></div>
+    <div class="dot" style="top: 77%; left: 52%;"></div>
+    <div class="dot" style="top: 83%; left: 35%;"></div>
+    <div class="dot" style="top: 71%; left: 42%;"></div>
+    <div class="dot" style="top: 21%; left: 82%;"></div>
+    <div class="dot" style="top: 5%; left: 15%;"></div>
+    <div class="dot" style="top: 34%; left: 66%;"></div>
+    <div class="dot" style="top: 12%; left: 48%;"></div>
+    <div class="dot" style="top: 49%; left: 85%;"></div>
+    <div class="dot" style="top: 25%; left: 52%;"></div>
+    <div class="dot" style="top: 38%; left: 8%;"></div>
+    <div class="dot" style="top: 61%; left: 35%;"></div>
+    <div class="dot" style="top: 2%; left: 42%;"></div>
+    <div class="dot" style="top: 44%; left: 65%;"></div>
+    <div class="dot" style="top: 27%; left: 95%;"></div>
+    <div class="dot" style="top: 72%; left: 15%;"></div>
+    <div class="dot" style="top: 9%; left: 78%;"></div>
+    <div class="dot" style="top: 58%; left: 12%;"></div>
+    <div class="dot" style="top: 16%; left: 68%;"></div>
+    <div class="dot" style="top: 35%; left: 45%;"></div>
+    <div class="dot" style="top: 28%; left: 88%;"></div>
+    <div class="dot" style="top: 42%; left: 58%;"></div>
+    <div class="dot" style="top: 11%; left: 25%;"></div>
+    <div class="dot" style="top: 65%; left: 38%;"></div>
+    <div class="dot" style="top: 20%; left: 75%;"></div>
+    <div class="dot" style="top: 75%; left: 62%;"></div>
+    <div class="dot" style="top: 30%; left: 18%;"></div>
+    <div class="dot" style="top: 52%; left: 88%;"></div>
+    <div class="dot" style="top: 87%; left: 30%;"></div>
+    <div class="dot" style="top: 14%; left: 82%;"></div>
+    <div class="dot" style="top: 64%; left: 15%;"></div>
+    <div class="dot" style="top: 18%; left: 55%;"></div>
+    <div class="dot" style="top: 39%; left: 75%;"></div>
+    <div class="dot" style="top: 22%; left: 35%;"></div>
+    <div class="dot" style="top: 56%; left: 48%;"></div>
+    <div class="dot" style="top: 32%; left: 92%;"></div>
+    <div class="dot" style="top: 70%; left: 22%;"></div>
+    <div class="dot" style="top: 6%; left: 60%;"></div>
+    <div class="dot" style="top: 48%; left: 32%;"></div>
+    <div class="dot" style="top: 24%; left: 72%;"></div>
+    <div class="dot" style="top: 80%; left: 18%;"></div>
+    <div class="dot" style="top: 36%; left: 58%;"></div>
+    <div class="dot" style="top: 13%; left: 42%;"></div>
+    <div class="dot" style="top: 68%; left: 85%;"></div>
+    
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+        <!-- Section Label -->
+        <div style="margin-bottom: 32px;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
+                <div style="width: 24px; height: 2px; background-color: var(--amber-cta);"></div>
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber-cta);">Our Courses</span>
+            </div>
+            <h2 style="font-size: 40px; font-weight: 800; color: white; font-family: 'Nunito', sans-serif;">Find the Right Course for You</h2>
+        </div>
+        
+        <!-- Tab Buttons -->
+        <div style="display: flex; gap: 12px; margin-bottom: 40px; flex-wrap: wrap;">
+            <button class="tab-button active" onclick="filterCourses('all')">All Courses</button>
+            <button class="tab-button" onclick="filterCourses('community')">Community Qualifications</button>
+            <button class="tab-button" onclick="filterCourses('accredited')">Accredited Short Courses</button>
+            <button class="tab-button" onclick="filterCourses('non-accredited')">Non-Accredited</button>
+        </div>
+        
+        <!-- Course Grid - Modern Design -->
+        <div class="course-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 28px; margin-bottom: 50px;">
+            
+            <!-- Course Card 1 -->
+            <div class="course-card" data-category="community" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0s both; position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">Community Courses</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Certificate III Individual Support" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 18px; font-weight: 800; margin: 0; line-height: 1.3;">CHC33021 Certificate III in Individual Support</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Learn how to support ageing individuals and people with disabilities with compassion, dignity, and practical care skills.</p>
+                    
+                    <!-- Duration and Cost -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-calendar" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>12 Months</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-dollar-sign" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>$2,200</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';" onclick="window.location.href='course-detail.html';">Explore More <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Course Card 2 -->
+            <div class="course-card" data-category="accredited" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both; position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(240, 141, 57, 0.15)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">Accredited Courses</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="First Aid & CPR Certification" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 18px; font-weight: 800; margin: 0; line-height: 1.3;">HLTAID011 Provide First Aid</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Respond to injuries and medical emergencies, providing first aid to preserve life and prevent conditions from worsening.</p>
+                    
+                    <!-- Duration and Cost -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-calendar" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>1 Day</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-dollar-sign" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>$350</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';" onclick="window.location.href='course-detail.html';">Explore More <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Course Card 3 -->
+            <div class="course-card" data-category="community" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both; position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">Community Courses</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Certificate III Disability Services" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 18px; font-weight: 800; margin: 0; line-height: 1.3;">CHC43121 Certificate IV in Disability Support</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Build the skills to empower people with disabilities and support their independence and wellbeing.</p>
+                    
+                    <!-- Duration and Cost -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-calendar" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>12 Months</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-dollar-sign" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>$2,500</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';" onclick="window.location.href='course-detail.html';">Explore More <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Course Card 4 -->
+            <div class="course-card" data-category="non-accredited" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both; position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(0, 0, 0, 0.1)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">Non-Accredited</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Manual Handling" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 18px; font-weight: 800; margin: 0; line-height: 1.3;">Manual Handling</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Learn safe techniques to handle patients and equipment, reducing workplace injuries.</p>
+                    
+                    <!-- Duration and Cost -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-calendar" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>1 Day</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-dollar-sign" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>$200</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';" onclick="window.location.href='course-detail.html';">Explore More <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Course Card 5 -->
+            <div class="course-card" data-category="accredited" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.8s both; position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">Accredited Courses</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="NDIS Support Coordination" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 18px; font-weight: 800; margin: 0; line-height: 1.3;">HLTAID009 Provide CPR</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Gain the skills and confidence to perform CPR and respond to cardiac emergencies.</p>
+                    
+                    <!-- Duration and Cost -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-calendar" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>1 Day</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-dollar-sign" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>$300</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';" onclick="window.location.href='course-detail.html';">Explore More <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+            
+            <!-- Course Card 6 -->
+            <div class="course-card" data-category="accredited" style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 3.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1s both; position: relative;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)';">
+                <!-- Category Badge -->
+                <div style="position: absolute; top: 0; left: 0; background-color: var(--amber-cta); color: white; padding: 6px 12px; border-radius: 0 0 8px 0; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; z-index: 10;">Accredited Courses</div>
+                
+                <!-- Image Section -->
+                <div style="height: 200px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="HLTHPS006 Assist with Medication" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Title Banner -->
+                <div style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 16px 24px; color: white;">
+                    <h3 style="font-size: 18px; font-weight: 800; margin: 0; line-height: 1.3;">HLTHPS006 Assist with Medication</h3>
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 24px;">
+                    <p style="font-size: 14px; color: var(--near-black); line-height: 1.7; margin-bottom: 20px; opacity: 0.8;">Support safe preparation and administration of medications in healthcare settings.</p>
+                    
+                    <!-- Duration and Cost -->
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #E5E7EB;">
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-calendar" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>2 Days</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--near-black); font-weight: 600;">
+                            <i class="fas fa-dollar-sign" style="color: var(--amber-cta); font-size: 16px;"></i>
+                            <span>$400</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Button -->
+                    <button style="background-color: var(--amber-cta); color: white; border: none; padding: 14px 24px; border-radius: 8px; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='#E87C1F'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(0)';" onclick="window.location.href='course-detail.html';">Explore More <i class="fas fa-arrow-right" style="margin-left: 8px;"></i></button>
+                </div>
+            </div>
+    </div>
+</section>
+
+<!-- 11. BLOG SECTION - OUR LATEST ARTICLES -->
+<section style="background: linear-gradient(135deg, var(--off-white) 0%, #f8f9fb 100%); padding: 100px 20px; position: relative; overflow: hidden;">
+    <!-- Decorative background elements -->
+    <div style="position: absolute; top: -50px; right: -100px; width: 300px; height: 300px; background: rgba(56, 82, 180, 0.08); border-radius: 50%; z-index: 0;"></div>
+    <div style="position: absolute; bottom: -100px; left: -50px; width: 400px; height: 400px; background: rgba(56, 82, 180, 0.04); border-radius: 50%; z-index: 0;"></div>
+    
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+        <!-- Section Header -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 24px;">
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+                <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--amber-cta); text-transform: uppercase;">Healthcare Insights</span>
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+            </div>
+            <h2 style="font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: var(--near-black); margin-bottom: 16px; line-height: 1.2;">Our Latest Articles</h2>
+            <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto;">Stay informed with expert insights and practical knowledge from the healthcare industry.</p>
+        </div>
+
+        <!-- Blog Cards Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; margin-bottom: 60px;">
+            
+            <!-- Blog Card 1 -->
+            <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0s both; cursor: pointer;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)'; this.style.transform='translateY(-8px)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)'; this.style.transform='translateY(0)';">
+                <!-- Image Section -->
+                <div style="height: 220px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="assets/images/Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Professional Ethics in Healthcare" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 32px;">
+                    <!-- Title -->
+                    <h3 style="font-size: 20px; font-weight: 800; color: var(--near-black); margin-bottom: 16px; line-height: 1.3; font-family: 'Nunito', sans-serif;">Professional Ethics and Conduct in Healthcare Services</h3>
+                    
+                    <!-- Description -->
+                    <p style="font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 28px; opacity: 0.85;">Ethical behaviour is the cornerstone of professional healthcare practice. Discover the principles and practices that define excellence in patient care and professional responsibility.</p>
+                    
+                    <!-- Read Now Button -->
+                    <button style="background-color: var(--primary-blue); color: white; border: none; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--primary-blue)'; this.style.transform='translateY(0)';">
+                        Read Now <i class="fas fa-arrow-right" style="margin-left: 8px; font-size: 12px;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Blog Card 2 -->
+            <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both; cursor: pointer;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)'; this.style.transform='translateY(-8px)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)'; this.style.transform='translateY(0)';">
+                <!-- Image Section -->
+                <div style="height: 220px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Aged Care Career" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 32px;">
+                    <!-- Title -->
+                    <h3 style="font-size: 20px; font-weight: 800; color: var(--near-black); margin-bottom: 16px; line-height: 1.3; font-family: 'Nunito', sans-serif;">Building a Successful Career in Aged Care in Australia</h3>
+                    
+                    <!-- Description -->
+                    <p style="font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 28px; opacity: 0.85;">Explore the rewarding path to a successful aged care career. Learn about essential qualifications, skill development, and career progression opportunities in Australia's growing healthcare sector.</p>
+                    
+                    <!-- Read Now Button -->
+                    <button style="background-color: var(--primary-blue); color: white; border: none; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--primary-blue)'; this.style.transform='translateY(0)';">
+                        Read Now <i class="fas fa-arrow-right" style="margin-left: 8px; font-size: 12px;"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Blog Card 3 -->
+            <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 8px 24px rgba(26, 34, 64, 0.1); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); animation: zoomInSlideUpFadeIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both; cursor: pointer;" onmouseover="this.style.boxShadow='0 16px 40px rgba(56, 82, 180, 0.15)'; this.style.transform='translateY(-8px)';" onmouseout="this.style.boxShadow='0 8px 24px rgba(26, 34, 64, 0.1)'; this.style.transform='translateY(0)';">
+                <!-- Image Section -->
+                <div style="height: 220px; overflow: hidden; background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%);">
+                    <img src="Five-Qualities-of-Great-Healthcare-Professionals-University-of-Bolton.jpg" alt="Practical Healthcare Training" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+                
+                <!-- Content Section -->
+                <div style="padding: 32px;">
+                    <!-- Title -->
+                    <h3 style="font-size: 20px; font-weight: 800; color: var(--near-black); margin-bottom: 16px; line-height: 1.3; font-family: 'Nunito', sans-serif;">Why Practical Training Matters in Healthcare Education</h3>
+                    
+                    <!-- Description -->
+                    <p style="font-size: 15px; color: #666; line-height: 1.7; margin-bottom: 28px; opacity: 0.85;">Healthcare education goes beyond theory. Discover why hands-on practical training is essential for developing real-world competencies and confidence in clinical environments.</p>
+                    
+                    <!-- Read Now Button -->
+                    <button style="background-color: var(--primary-blue); color: white; border: none; padding: 12px 28px; border-radius: 8px; font-size: 14px; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='var(--amber-cta)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.backgroundColor='var(--primary-blue)'; this.style.transform='translateY(0)';">
+                        Read Now <i class="fas fa-arrow-right" style="margin-left: 8px; font-size: 12px;"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 10. TESTIMONIALS - INFINITE CAROUSEL -->
+<section style="background: linear-gradient(135deg, #1A2D5E 0%, #0F1E3D 100%); padding: 100px 20px; color: white; position: relative; overflow: hidden;">
+    <!-- Decorative Background Elements -->
+    <div style="position: absolute; top: -50px; right: -100px; width: 300px; height: 300px; background: rgba(56, 82, 180, 0.15); border-radius: 50%; z-index: 0;"></div>
+    <div style="position: absolute; bottom: -100px; left: -50px; width: 400px; height: 400px; background: rgba(56, 82, 180, 0.12); border-radius: 50%; z-index: 0;"></div>
+    
+    <!-- Random Floating White Dots Background -->
+    <div class="dot" style="top: 8%; left: 3%;"></div>
+    <div class="dot" style="top: 15%; left: 12%;"></div>
+    <div class="dot" style="top: 3%; left: 22%;"></div>
+    <div class="dot" style="top: 22%; left: 7%;"></div>
+    <div class="dot" style="top: 11%; left: 35%;"></div>
+    <div class="dot" style="top: 18%; left: 28%;"></div>
+    <div class="dot" style="top: 6%; left: 45%;"></div>
+    <div class="dot" style="top: 25%; left: 38%;"></div>
+    <div class="dot" style="top: 13%; left: 52%;"></div>
+    <div class="dot" style="top: 20%; left: 58%;"></div>
+    <div class="dot" style="top: 4%; left: 68%;"></div>
+    <div class="dot" style="top: 27%; left: 62%;"></div>
+    <div class="dot" style="top: 14%; left: 75%;"></div>
+    <div class="dot" style="top: 9%; left: 85%;"></div>
+    <div class="dot" style="top: 19%; left: 92%;"></div>
+    <div class="dot" style="top: 12%; left: 98%;"></div>
+    <div class="dot" style="top: 35%; left: 5%;"></div>
+    <div class="dot" style="top: 42%; left: 15%;"></div>
+    <div class="dot" style="top: 38%; left: 25%;"></div>
+    <div class="dot" style="top: 45%; left: 11%;"></div>
+    <div class="dot" style="top: 30%; left: 32%;"></div>
+    <div class="dot" style="top: 48%; left: 19%;"></div>
+    <div class="dot" style="top: 33%; left: 50%;"></div>
+    <div class="dot" style="top: 40%; left: 40%;"></div>
+    <div class="dot" style="top: 28%; left: 72%;"></div>
+    <div class="dot" style="top: 46%; left: 58%;"></div>
+    <div class="dot" style="top: 36%; left: 82%;"></div>
+    <div class="dot" style="top: 43%; left: 68%;"></div>
+    <div class="dot" style="top: 32%; left: 88%;"></div>
+    <div class="dot" style="top: 44%; left: 78%;"></div>
+    <div class="dot" style="top: 55%; left: 8%;"></div>
+    <div class="dot" style="top: 62%; left: 18%;"></div>
+    <div class="dot" style="top: 58%; left: 28%;"></div>
+    <div class="dot" style="top: 65%; left: 14%;"></div>
+    <div class="dot" style="top: 50%; left: 35%;"></div>
+    <div class="dot" style="top: 68%; left: 22%;"></div>
+    <div class="dot" style="top: 53%; left: 45%;"></div>
+    <div class="dot" style="top: 60%; left: 38%;"></div>
+    <div class="dot" style="top: 52%; left: 62%;"></div>
+    <div class="dot" style="top: 66%; left: 55%;"></div>
+    <div class="dot" style="top: 56%; left: 75%;"></div>
+    <div class="dot" style="top: 64%; left: 70%;"></div>
+    <div class="dot" style="top: 59%; left: 85%;"></div>
+    <div class="dot" style="top: 69%; left: 91%;"></div>
+    <div class="dot" style="top: 54%; left: 78%;"></div>
+    <div class="dot" style="top: 61%; left: 92%;"></div>
+    <div class="dot" style="top: 75%; left: 4%;"></div>
+    <div class="dot" style="top: 82%; left: 16%;"></div>
+    <div class="dot" style="top: 78%; left: 26%;"></div>
+    <div class="dot" style="top: 85%; left: 10%;"></div>
+    <div class="dot" style="top: 70%; left: 38%;"></div>
+    <div class="dot" style="top: 88%; left: 20%;"></div>
+    <div class="dot" style="top: 73%; left: 48%;"></div>
+    <div class="dot" style="top: 80%; left: 42%;"></div>
+    <div class="dot" style="top: 72%; left: 65%;"></div>
+    <div class="dot" style="top: 86%; left: 58%;"></div>
+    <div class="dot" style="top: 76%; left: 80%;"></div>
+    <div class="dot" style="top: 84%; left: 72%;"></div>
+    <div class="dot" style="top: 79%; left: 88%;"></div>
+    <div class="dot" style="top: 89%; left: 94%;"></div>
+    <div class="dot" style="top: 74%; left: 68%;"></div>
+    <div class="dot" style="top: 81%; left: 95%;"></div>
+    <div class="dot" style="top: 95%; left: 6%;"></div>
+    <div class="dot" style="top: 92%; left: 19%;"></div>
+    <div class="dot" style="top: 98%; left: 30%;"></div>
+    <div class="dot" style="top: 93%; left: 12%;"></div>
+    <div class="dot" style="top: 90%; left: 42%;"></div>
+    <div class="dot" style="top: 96%; left: 24%;"></div>
+    <div class="dot" style="top: 94%; left: 52%;"></div>
+    <div class="dot" style="top: 97%; left: 45%;"></div>
+    <div class="dot" style="top: 91%; left: 68%;"></div>
+    <div class="dot" style="top: 99%; left: 60%;"></div>
+    <div class="dot" style="top: 87%; left: 82%;"></div>
+    <div class="dot" style="top: 93%; left: 75%;"></div>
+    <div class="dot" style="top: 89%; left: 90%;"></div>
+    <div class="dot" style="top: 97%; left: 85%;"></div>
+    <div class="dot" style="top: 86%; left: 74%;"></div>
+    <div class="dot" style="top: 94%; left: 88%;"></div>
+    <div class="dot" style="top: 7%; left: 56%;"></div>
+    <div class="dot" style="top: 19%; left: 42%;"></div>
+    <div class="dot" style="top: 31%; left: 78%;"></div>
+    <div class="dot" style="top: 24%; left: 65%;"></div>
+    <div class="dot" style="top: 10%; left: 88%;"></div>
+    <div class="dot" style="top: 29%; left: 18%;"></div>
+    <div class="dot" style="top: 37%; left: 62%;"></div>
+    <div class="dot" style="top: 41%; left: 32%;"></div>
+    <div class="dot" style="top: 16%; left: 72%;"></div>
+    <div class="dot" style="top: 26%; left: 48%;"></div>
+    <div class="dot" style="top: 51%; left: 12%;"></div>
+    <div class="dot" style="top: 63%; left: 92%;"></div>
+    <div class="dot" style="top: 17%; left: 38%;"></div>
+    <div class="dot" style="top: 39%; left: 88%;"></div>
+    <div class="dot" style="top: 47%; left: 76%;"></div>
+    <div class="dot" style="top: 57%; left: 28%;"></div>
+    <div class="dot" style="top: 67%; left: 18%;"></div>
+    <div class="dot" style="top: 77%; left: 52%;"></div>
+    <div class="dot" style="top: 83%; left: 35%;"></div>
+    <div class="dot" style="top: 71%; left: 42%;"></div>
+    <div class="dot" style="top: 21%; left: 82%;"></div>
+    <div class="dot" style="top: 5%; left: 15%;"></div>
+    <div class="dot" style="top: 34%; left: 66%;"></div>
+    <div class="dot" style="top: 12%; left: 48%;"></div>
+    <div class="dot" style="top: 49%; left: 85%;"></div>
+    <div class="dot" style="top: 25%; left: 52%;"></div>
+    <div class="dot" style="top: 38%; left: 8%;"></div>
+    <div class="dot" style="top: 61%; left: 35%;"></div>
+    <div class="dot" style="top: 2%; left: 42%;"></div>
+    <div class="dot" style="top: 44%; left: 65%;"></div>
+    <div class="dot" style="top: 27%; left: 95%;"></div>
+    <div class="dot" style="top: 72%; left: 15%;"></div>
+    <div class="dot" style="top: 9%; left: 78%;"></div>
+    <div class="dot" style="top: 58%; left: 12%;"></div>
+    <div class="dot" style="top: 16%; left: 68%;"></div>
+    <div class="dot" style="top: 35%; left: 45%;"></div>
+    <div class="dot" style="top: 28%; left: 88%;"></div>
+    <div class="dot" style="top: 42%; left: 58%;"></div>
+    <div class="dot" style="top: 11%; left: 25%;"></div>
+    <div class="dot" style="top: 65%; left: 38%;"></div>
+    <div class="dot" style="top: 20%; left: 75%;"></div>
+    <div class="dot" style="top: 75%; left: 62%;"></div>
+    <div class="dot" style="top: 30%; left: 18%;"></div>
+    <div class="dot" style="top: 52%; left: 88%;"></div>
+    <div class="dot" style="top: 87%; left: 30%;"></div>
+    <div class="dot" style="top: 14%; left: 82%;"></div>
+    <div class="dot" style="top: 64%; left: 15%;"></div>
+    <div class="dot" style="top: 18%; left: 55%;"></div>
+    <div class="dot" style="top: 39%; left: 75%;"></div>
+    <div class="dot" style="top: 22%; left: 35%;"></div>
+    <div class="dot" style="top: 56%; left: 48%;"></div>
+    <div class="dot" style="top: 32%; left: 92%;"></div>
+    <div class="dot" style="top: 70%; left: 22%;"></div>
+    <div class="dot" style="top: 6%; left: 60%;"></div>
+    <div class="dot" style="top: 48%; left: 32%;"></div>
+    <div class="dot" style="top: 24%; left: 72%;"></div>
+    <div class="dot" style="top: 80%; left: 18%;"></div>
+    <div class="dot" style="top: 36%; left: 58%;"></div>
+    <div class="dot" style="top: 13%; left: 42%;"></div>
+    <div class="dot" style="top: 68%; left: 85%;"></div>
+    
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1;">
+        <!-- Header -->
+        <div style="text-align: center; margin-bottom: 70px;">
+            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 16px;">
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+                <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--amber-cta); text-transform: uppercase;">Success Stories</span>
+                <div style="width: 32px; height: 2px; background-color: var(--amber-cta);"></div>
+            </div>
+            <h2 style="font-size: clamp(32px, 5vw, 52px); font-weight: 900; color: white; margin-bottom: 20px; line-height: 1.2;">What Our Graduates Say</h2>
+            <p style="font-size: 18px; color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto;">
+                Hear directly from our successful graduates about their transformative learning experience.
+            </p>
+        </div>
+        
+        <!-- Carousel Container -->
+        <div class="testimonial-carousel-wrapper">
+            <!-- Left Arrow -->
+            <button class="carousel-nav-btn carousel-prev" style="border-color: white;">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <!-- Carousel Track Container -->
+            <div class="carousel-container">
+                <div class="carousel-track" id="testimonialTrack">
+                    
+                    <!-- Card 1: Emily R. -->
+                    <div class="carousel-card">
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); padding: 32px 28px;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                            <!-- Small Circular Avatar -->
+                            <div style="text-align: center; margin-bottom: 32px;">
+                                <img src="office.png" alt="Emily R." style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-blue);">
+                            </div>
+                            
+                            <!-- Card Content -->
+                            <div style="display: flex; flex-direction: column; flex: 1; text-align: center; align-items: center; width: 100%;">
+                                <!-- Stars -->
+                                <div style="margin-bottom: 16px; color: var(--amber-cta); font-size: 14px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div style="border-top: 1px solid var(--blue-tint); margin-bottom: 16px; width: 100%;"></div>
+                                
+                                <!-- Testimonial Text -->
+                                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px; color: var(--near-black); flex: 1; font-weight: 500; text-align: center;">I started receiving The Inside Track during my final semester of university, and it transformed how I approached the job market. The tips on networking, market insights, and interview prep gave me a serious advantage. Within weeks, I landed an interview at a top-tier finance firm.</p>
+                                
+                                <!-- Author -->
+                                <div style="border-top: 1px solid var(--blue-tint); padding-top: 16px; text-align: center; width: 100%;">
+                                    <h4 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--near-black);">Emily R.</h4>
+                                    <p style="font-size: 12px; color: var(--blue-light); margin: 4px 0 0 0; font-weight: 500;">Healthcare Professional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Michael King -->
+                    <div class="carousel-card">
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); padding: 32px 28px;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                            <!-- Small Circular Avatar -->
+                            <div style="text-align: center; margin-bottom: 32px;">
+                                <img src="office.png" alt="Michael King" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-blue);">
+                            </div>
+                            
+                            <!-- Card Content -->
+                            <div style="display: flex; flex-direction: column; flex: 1; text-align: center; align-items: center; width: 100%;">
+                                <!-- Stars -->
+                                <div style="margin-bottom: 16px; color: var(--amber-cta); font-size: 14px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div style="border-top: 1px solid var(--blue-tint); margin-bottom: 16px; width: 100%;"></div>
+                                
+                                <!-- Testimonial Text -->
+                                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px; color: var(--near-black); flex: 1; font-weight: 500; text-align: center;">I started receiving The Inside Track during my final semester of university, and it transformed how I approached the job market. The tips on networking, market insights, and interview prep gave me a serious advantage. Within weeks, I landed an interview at a top-tier finance firm.</p>
+                                
+                                <!-- Author -->
+                                <div style="border-top: 1px solid var(--blue-tint); padding-top: 16px; text-align: center; width: 100%;">
+                                    <h4 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--near-black);">Michael King</h4>
+                                    <p style="font-size: 12px; color: var(--blue-light); margin: 4px 0 0 0; font-weight: 500;">Aged Care Specialist</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3: Emma Roberts -->
+                    <div class="carousel-card">
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); padding: 32px 28px;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                            <!-- Small Circular Avatar -->
+                            <div style="text-align: center; margin-bottom: 32px;">
+                                <img src="office.png" alt="Emma Roberts" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-blue);">
+                            </div>
+                            
+                            <!-- Card Content -->
+                            <div style="display: flex; flex-direction: column; flex: 1; text-align: center; align-items: center; width: 100%;">
+                                <!-- Stars -->
+                                <div style="margin-bottom: 16px; color: var(--amber-cta); font-size: 14px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div style="border-top: 1px solid var(--blue-tint); margin-bottom: 16px; width: 100%;"></div>
+                                
+                                <!-- Testimonial Text -->
+                                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px; color: var(--near-black); flex: 1; font-weight: 500; text-align: center;">I started receiving The Inside Track during my final semester of university, and it transformed how I approached the job market. The tips on networking, market insights, and interview prep gave me a serious advantage. Within weeks, I landed an interview at a top-tier finance firm.</p>
+                                
+                                <!-- Author -->
+                                <div style="border-top: 1px solid var(--blue-tint); padding-top: 16px; text-align: center; width: 100%;">
+                                    <h4 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--near-black);">Emma Roberts</h4>
+                                    <p style="font-size: 12px; color: var(--blue-light); margin: 4px 0 0 0; font-weight: 500;">Disability Advocate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: Liam Thompson -->
+                    <div class="carousel-card">
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); padding: 32px 28px;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                            <!-- Small Circular Avatar -->
+                            <div style="text-align: center; margin-bottom: 32px;">
+                                <img src="office.png" alt="Liam Thompson" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-blue);">
+                            </div>
+                            
+                            <!-- Card Content -->
+                            <div style="display: flex; flex-direction: column; flex: 1; text-align: center; align-items: center; width: 100%;">
+                                <!-- Stars -->
+                                <div style="margin-bottom: 16px; color: var(--amber-cta); font-size: 14px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div style="border-top: 1px solid var(--blue-tint); margin-bottom: 16px; width: 100%;"></div>
+                                
+                                <!-- Testimonial Text -->
+                                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px; color: var(--near-black); flex: 1; font-weight: 500; text-align: center;">I started receiving The Inside Track during my final semester of university, and it transformed how I approached the job market. The tips on networking, market insights, and interview prep gave me a serious advantage. Within weeks, I landed an interview at a top-tier finance firm.</p>
+                                
+                                <!-- Author -->
+                                <div style="border-top: 1px solid var(--blue-tint); padding-top: 16px; text-align: center; width: 100%;">
+                                    <h4 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--near-black);">Liam Thompson</h4>
+                                    <p style="font-size: 12px; color: var(--blue-light); margin: 4px 0 0 0; font-weight: 500;">Care Coordinator</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 5: Nina Hall -->
+                    <div class="carousel-card">
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); padding: 32px 28px;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                            <!-- Small Circular Avatar -->
+                            <div style="text-align: center; margin-bottom: 32px;">
+                                <img src="office.png" alt="Nina Hall" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-blue);">
+                            </div>
+                            
+                            <!-- Card Content -->
+                            <div style="display: flex; flex-direction: column; flex: 1; text-align: center; align-items: center; width: 100%;">
+                                <!-- Stars -->
+                                <div style="margin-bottom: 16px; color: var(--amber-cta); font-size: 14px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div style="border-top: 1px solid var(--blue-tint); margin-bottom: 16px; width: 100%;"></div>
+                                
+                                <!-- Testimonial Text -->
+                                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px; color: var(--near-black); flex: 1; font-weight: 500; text-align: center;">I started receiving The Inside Track during my final semester of university, and it transformed how I approached the job market. The tips on networking, market insights, and interview prep gave me a serious advantage. Within weeks, I landed an interview at a top-tier finance firm.</p>
+                                
+                                <!-- Author -->
+                                <div style="border-top: 1px solid var(--blue-tint); padding-top: 16px; text-align: center; width: 100%;">
+                                    <h4 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--near-black);">Nina Hall</h4>
+                                    <p style="font-size: 12px; color: var(--blue-light); margin: 4px 0 0 0; font-weight: 500;">Nurse Practitioner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 6: James Chen -->
+                    <div class="carousel-card">
+                        <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(26, 34, 64, 0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center; border-left: 5px solid var(--primary-blue); border-right: 5px solid var(--primary-blue); padding: 32px 28px;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 28px rgba(26, 34, 64, 0.12)'; this.style.borderLeftColor='var(--amber-cta)'; this.style.borderRightColor='var(--amber-cta)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(26, 34, 64, 0.08)'; this.style.borderLeftColor='var(--primary-blue)'; this.style.borderRightColor='var(--primary-blue)';">
+                            <!-- Small Circular Avatar -->
+                            <div style="text-align: center; margin-bottom: 32px;">
+                                <img src="office.png" alt="James Chen" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-blue);">
+                            </div>
+                            
+                            <!-- Card Content -->
+                            <div style="display: flex; flex-direction: column; flex: 1; text-align: center; align-items: center; width: 100%;">
+                                <!-- Stars -->
+                                <div style="margin-bottom: 16px; color: var(--amber-cta); font-size: 14px; text-align: center;">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                
+                                <!-- Divider -->
+                                <div style="border-top: 1px solid var(--blue-tint); margin-bottom: 16px; width: 100%;"></div>
+                                
+                                <!-- Testimonial Text -->
+                                <p style="font-size: 15px; line-height: 1.7; margin-bottom: 24px; color: var(--near-black); flex: 1; font-weight: 500; text-align: center;">I started receiving The Inside Track during my final semester of university, and it transformed how I approached the job market. The tips on networking, market insights, and interview prep gave me a serious advantage. Within weeks, I landed an interview at a top-tier finance firm.</p>
+                                
+                                <!-- Author -->
+                                <div style="border-top: 1px solid var(--blue-tint); padding-top: 16px; text-align: center; width: 100%;">
+                                    <h4 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--near-black);">James Chen</h4>
+                                    <p style="font-size: 12px; color: var(--blue-light); margin: 4px 0 0 0; font-weight: 500;">Support Worker</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Right Arrow -->
+            <button class="carousel-nav-btn carousel-next" style="border-color: white;">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- 8.5 READY TO EXPLORE SECTION -->
+<section style="background: linear-gradient(135deg, var(--primary-blue) 0%, #2D4A8F 100%); padding: 120px 20px; position: relative; overflow: hidden;" id="explore-courses">
+    <!-- Decorative background elements -->
+    <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: rgba(240, 141, 57, 0.08); border-radius: 50%; pointer-events: none;"></div>
+    <div style="position: absolute; bottom: -150px; left: -150px; width: 500px; height: 500px; background: rgba(255, 255, 255, 0.05); border-radius: 50%; pointer-events: none;"></div>
+    
+    <div style="max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; text-align: center;">
+        <!-- Heading -->
+        <h2 style="font-size: clamp(32px, 5vw, 48px); font-weight: 900; color: white; margin-bottom: 20px; line-height: 1.2; animation: fadeInUp 0.6s ease-out 0s both;">Ready to Start Your Healthcare Career?</h2>
+        
+        <!-- Description -->
+        <p style="font-size: 18px; color: rgba(255, 255, 255, 0.9); max-width: 700px; margin: 0 auto 50px auto; line-height: 1.8; animation: fadeInUp 0.6s ease-out 0.1s both;">Join hundreds of graduates pursuing rewarding careers in aged care, disability support, and healthcare. Flexible, accredited, and NDIS-compliant training in Perth.</p>
+        
+        <!-- CTA Buttons -->
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.6s ease-out 0.2s both;">
+            <button style="background-color: var(--amber-cta); color: white; border: none; padding: 18px 50px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 12px 40px rgba(240, 141, 57, 0.3); display: inline-flex; align-items: center; gap: 12px;" onmouseover="this.style.transform='translateY(-4px) scale(1.05)'; this.style.boxShadow='0 18px 50px rgba(240, 141, 57, 0.4);'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 12px 40px rgba(240, 141, 57, 0.3);'">
+                <span>Enrol Now</span>
+                <i class="fas fa-arrow-right" style="font-size: 14px;"></i>
+            </button>
+            <button style="background-color: transparent; color: white; border: 2px solid white; padding: 16px 48px; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.backgroundColor='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(-4px)';" onmouseout="this.style.backgroundColor='transparent'; this.style.transform='translateY(0)';">
+                Request Info
+            </button>
+        </div>
+    </div>
+</section>
+
+<script>
+// Testimonial Carousel - Infinite Loop with Responsive Card Count
+(function() {
+    const track = document.getElementById('testimonialTrack');
+    const prevBtn = document.querySelector('.carousel-prev');
+    const nextBtn = document.querySelector('.carousel-next');
+    const cards = document.querySelectorAll('.carousel-card');
+    
+    let index = 0;
+    let visibleCards = 3; // Default: desktop
+    const totalCards = cards.length;
+    let cardWidth = 0;
+    
+    // Helper function to get visible cards based on breakpoint
+    function getVisibleCards() {
+        const width = window.innerWidth;
+        if (width >= 1025) return 3;
+        if (width >= 769) return 2;
+        return 1;
+    }
+    
+    // Helper function to clone cards
+    function cloneCards(count) {
+        const clones = [];
+        for (let i = 0; i < count; i++) {
+            clones.push(cards[i].cloneNode(true));
+        }
+        return clones;
+    }
+    
+    // Initialize carousel
+    function initCarousel() {
+        // Remove previous clones
+        const allChildren = Array.from(track.children);
+        allChildren.forEach(child => {
+            if (!child.classList.contains('carousel-card')) {
+                child.remove();
+            }
+        });
+        
+        // Get current visible cards
+        visibleCards = getVisibleCards();
+        
+        // Get clones to add
+        const firstClones = cloneCards(visibleCards);
+        const lastClones = cloneCards(visibleCards).reverse();
+        
+        // Add clones to track
+        lastClones.forEach(clone => track.insertBefore(clone, track.firstChild));
+        firstClones.forEach(clone => track.appendChild(clone));
+        
+        // Set starting position
+        index = visibleCards;
+        updatePosition();
+    }
+    
+    // Update track position
+    function updatePosition() {
+        // Get current card width
+        const firstCard = track.children[visibleCards];
+        cardWidth = firstCard.offsetWidth + 24; // Include gap
+        
+        const offset = index * cardWidth;
+        track.style.transform = `translateX(-${offset}px)`;
+    }
+    
+    // Next button handler
+    nextBtn.addEventListener('click', () => {
+        index++;
+        track.style.transition = 'transform 0.5s ease-in-out';
+        updatePosition();
+        
+        // Check if we reached the cloned section
+        if (index >= totalCards + visibleCards) {
+            setTimeout(() => {
+                track.style.transition = 'none';
+                index = visibleCards;
+                updatePosition();
+            }, 500);
+        }
+    });
+    
+    // Previous button handler
+    prevBtn.addEventListener('click', () => {
+        index--;
+        track.style.transition = 'transform 0.5s ease-in-out';
+        updatePosition();
+        
+        // Check if we went before the original cards
+        if (index < visibleCards) {
+            setTimeout(() => {
+                track.style.transition = 'none';
+                index = totalCards + visibleCards - 1;
+                updatePosition();
+            }, 500);
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        const newVisibleCards = getVisibleCards();
+        if (newVisibleCards !== visibleCards) {
+            initCarousel();
+        }
+    });
+    
+    // Initialize on load
+    initCarousel();
+})();
+</script>
+
+<!-- 12. CONTACT QUICK INFO BAR -->
+<section style="background-color: var(--off-white); padding: 40px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 0; border-left: 1px solid #ddd;">
+        <!-- Phone -->
+        <div style="padding: 24px; border-right: 1px solid #ddd; display: flex; align-items: center; gap: 16px;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary-blue); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">
+                <i class="fas fa-phone"></i>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: #999; font-weight: 600;">PHONE</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--primary-blue);">(08) 6289 6155</div>
+            </div>
+        </div>
+        
+        <!-- Email -->
+        <div style="padding: 24px; border-right: 1px solid #ddd; display: flex; align-items: center; gap: 16px;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--amber-cta); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: #999; font-weight: 600;">EMAIL</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--near-black);">hello@markinstitute.edu.au</div>
+            </div>
+        </div>
+        
+        <!-- Location -->
+        <div style="padding: 24px; display: flex; align-items: center; gap: 16px;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary-blue); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+                <div style="font-size: 12px; color: #999; font-weight: 600;">LOCATION</div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--near-black);">Perth, Western Australia</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 13. FOOTER -->
+<footer style="background-color: var(--near-black); color: white; border-top: 3px solid; border-image: linear-gradient(90deg, var(--primary-blue), var(--amber-cta)) 0 0 1;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 30px 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 20px;">
+        
+        <!-- Brand Column -->
+        <div>
+            <h3 style="font-size: 16px; font-weight: 800; color: white; font-family: 'Nunito', sans-serif; margin-bottom: 4px;">Mark Institute Australia</h3>
+            <p style="font-size: 13px; color: var(--amber-cta); font-style: italic; margin-bottom: 16px; margin-top: 0;">"Engaging Hearts, Equipping Minds"</p>
+            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.7); line-height: 1.6; margin-bottom: 20px;">
+                Empowering healthcare professionals across Perth with nationally recognised, NDIS-compliant training.
+            </p>
+            <div style="display: flex; gap: 12px;">
+                <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(56, 82, 180, 0.3); display: flex; align-items: center; justify-content: center; color: var(--amber-cta); transition: all 0.3s;">
+                    <i class="fab fa-facebook-f" style="font-size: 14px;"></i>
+                </a>
+                <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(56, 82, 180, 0.3); display: flex; align-items: center; justify-content: center; color: var(--amber-cta); transition: all 0.3s;">
+                    <i class="fab fa-instagram" style="font-size: 14px;"></i>
+                </a>
+                <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background: rgba(56, 82, 180, 0.3); display: flex; align-items: center; justify-content: center; color: var(--amber-cta); transition: all 0.3s;">
+                    <i class="fab fa-linkedin-in" style="font-size: 14px;"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--amber-cta); font-family: 'Nunito', sans-serif; margin-bottom: 20px; text-transform: uppercase;">Quick Links</h4>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 10px;"><a href="index.html" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Home</a></li>
+                <li style="margin-bottom: 10px;"><a href="#about" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">About Us</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Blogs</a></li>
+                <li><a href="#faq" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <!-- Courses -->
+        <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--amber-cta); font-family: 'Nunito', sans-serif; margin-bottom: 20px; text-transform: uppercase;">Courses</h4>
+            <ul style="list-style: none;">
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Community Courses</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Accredited Courses</a></li>
+                <li style="margin-bottom: 10px;"><a href="#" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Non Accredited Courses</a></li>
+                <li><a href="#contact" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-size: 13px; transition: all 0.3s;">Contact Us</a></li>
+            </ul>
+        </div>
+        
+        <!-- Get In Touch -->
+        <div>
+            <h4 style="font-size: 14px; font-weight: 700; color: var(--amber-cta); font-family: 'Nunito', sans-serif; margin-bottom: 20px; text-transform: uppercase;">Get In Touch</h4>
+            <div style="margin-bottom: 16px;">
+                <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">Phone</div>
+                <a href="tel:0862896155" style="font-size: 14px; color: white; text-decoration: none; font-weight: 600;">(08) 6289 6155</a>
+            </div>
+            <div style="margin-bottom: 16px;">
+                <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">Email</div>
+                <a href="mailto:admin@markinstitute.com.au" style="font-size: 14px; color: white; text-decoration: none; font-weight: 600;">admin@markinstitute.com.au</a>
+            </div>
+            <div>
+                <div style="font-size: 11px; color: rgba(255, 255, 255, 0.7); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">Address</div>
+                <div style="font-size: 13px; color: rgba(255, 255, 255, 0.85);">Level 2, Unit 4/353<br/>Shepperton Road<br/>East Victoria Park WA 6101</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Opening Hours Section -->
+    <div style="background-color: rgba(56, 82, 180, 0.1); border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 24px 20px;">
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px;">
+            <div>
+                <h4 style="font-size: 12px; font-weight: 700; color: var(--amber-cta); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">Opening Hours</h4>
+                <p style="font-size: 13px; color: rgba(255, 255, 255, 0.85); margin: 0; line-height: 1.8;">
+                    <strong>Mon – Fri:</strong> 09:00 AM – 05:00 PM<br/>
+                    <strong>Sat & Sun:</strong> Closed
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding: 16px 20px; text-align: center;">
+        <p style="font-size: 12px; color: rgba(255, 255, 255, 0.6); margin: 0;">
+            Copyright © 2026 Mark Institute Australia - RTO NUMBER 46473. All Rights Reserved.
+        </p>
+    </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('mainHeader');
+        if (window.scrollY > 10) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    
+    // Course filter
+    function filterCourses(category) {
+        const cards = document.querySelectorAll('.course-card');
+        const buttons = document.querySelectorAll('.tab-button');
+        
+        // Update active button
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // Filter cards
+        cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'block';
+                setTimeout(() => card.style.opacity = '1', 10);
+            } else {
+                card.style.opacity = '0';
+                setTimeout(() => card.style.display = 'none', 150);
+            }
+        });
+    }
+    
+    // Horizontal scroll
+    function scrollLeft() {
+        const scroll = document.getElementById('courseScroll');
+        scroll.scrollBy({ left: -340, behavior: 'smooth' });
+    }
+    
+    function scrollRight() {
+        const scroll = document.getElementById('courseScroll');
+        scroll.scrollBy({ left: 340, behavior: 'smooth' });
+    }
+    
+    // Courses Dropdown
+    function toggleCoursesDropdown(event) {
+        event.preventDefault();
+        const menu = document.getElementById('coursesDropdownMenu');
+        menu.classList.toggle('active');
+    }
+    
+    // Switch dropdown tabs
+    function switchDropdownTab(tabName, event) {
+        event.preventDefault();
+        
+        // Update active tab button
+        const buttons = document.querySelectorAll('.dropdown-tab');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // Update active course items
+        const courseItems = document.querySelectorAll('.dropdown-course-item');
+        courseItems.forEach(item => item.classList.remove('active'));
+        
+        const activeItem = document.querySelector(`.dropdown-course-item[data-tab="${tabName}"]`);
+        if (activeItem) {
+            activeItem.classList.add('active');
+        }
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const container = document.querySelector('.courses-dropdown-container');
+        if (container && !container.contains(event.target)) {
+            document.getElementById('coursesDropdownMenu').classList.remove('active');
+        }
+    });
+    
+    // Intersection Observer for Scroll-Triggered Animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all scroll-animate elements
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateElements = document.querySelectorAll('.scroll-animate');
+        animateElements.forEach(el => observer.observe(el));
+    });
+</script>
+
+</body>
+</html>

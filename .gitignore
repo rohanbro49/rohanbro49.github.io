@@ -1,0 +1,16 @@
+# IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (if used in future)
+node_modules/
+npm-debug.log
+
+# Build artifacts
+dist/
+build/
